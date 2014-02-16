@@ -18,10 +18,19 @@
 @property (nonatomic) Boolean animating;
 @property (nonatomic) Boolean dragging;
 @property (nonatomic) Boolean inBounds;
+@property (nonatomic) CAKeyframeAnimation* anim1;
 @property (nonatomic) CGPoint outOfBoundsAt;
 @property (nonatomic) float snapBackAt;
 
 - (id)initWithImageView: (UIImageView*) imageView;
 -(void) addTapRecognizer;
-- (void)jiggle:(UITapGestureRecognizer *)sender;
+-(void) floatingInSpace: (UIView*) floater;
+-(void)jiggle:(UITapGestureRecognizer *)sender;
+-(float)returnRadians:(float)usingPercentage :(float)ofRadians;
+-(CGPoint)returnPoint:(float)usingDistance :(float)withX :(float)withY :(float)andRadians;
+-(void) snapBackAnimation:(float)currentX :(float)currentY :(float)distance;
+- (void) panning: (UIPanGestureRecognizer*) gesture;
+-(void)animationDidStart:(CAAnimation *)theAnimation;
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag;
+
 @end

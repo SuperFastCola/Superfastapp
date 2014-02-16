@@ -105,8 +105,8 @@
     [super didReceiveMemoryWarning];
     
     [self.page willMoveToParentViewController:nil];
-    [self.page.view removeFromSuperview];
-    [self.page removeFromParentViewController];
+    //[self.page.view removeFromSuperview];
+    //[self.page removeFromParentViewController];
     
     // Dispose of any resources that can be recreated.
 }

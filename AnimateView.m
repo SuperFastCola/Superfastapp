@@ -20,11 +20,14 @@
 @synthesize inBounds;
 @synthesize outOfBoundsAt;
 @synthesize snapBackAt;
+@synthesize anim1;
 
 - (id)initWithImageView:(UIImageView*) imageView
 {
     self = [super initWithFrame:imageView.frame];
-    if (self) {
+    
+    if (self && self != nil) {
+        
         // Initialization code
         self.animateThisImage = (UIView*) imageView;
         self.viewCenter = self.animateThisImage.center;
@@ -119,9 +122,13 @@
     CGPoint opposite75;
     
     //create path fr animation
+
     CGMutablePathRef path = CGPathCreateMutable();
+
     
-    if(self.dragging == NO){
+    if(self->dragging == NO){
+        
+
         if(currentX>0 && currentY>0 && distance>0){
             
             CGPathMoveToPoint(path, NULL, cx, cy);
@@ -174,8 +181,9 @@
 
         CGPathAddLineToPoint(path, NULL, self.viewCenter.x, self.viewCenter.y);
         
+        
         //play animation
-        CAKeyframeAnimation* anim1 = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+        anim1 = [CAKeyframeAnimation animationWithKeyPath:@"position"];
         anim1.path = path;
         anim1.duration = .35;
         anim1.calculationMode = kCAAnimationPaced;
@@ -184,8 +192,11 @@
         anim1.delegate = self;
          
         [self.animateThisImage.layer addAnimation:anim1 forKey:@"position"];
+    
     }
-   
+    
+    CGPathRelease(path);
+
 }
 
 - (void) panning: (UIPanGestureRecognizer*) gesture {
@@ -198,6 +209,8 @@
     CGPoint loc;
     
     loc = [gesture translationInView:[self.animateThisImage superview]];
+    
+    gesture.delaysTouchesEnded = NO;  
     
     newX =self.viewCenter.x+loc.x;
     newY =self.viewCenter.y+loc.y;
@@ -259,10 +272,10 @@
 }
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag{
-    NSLog(@"Ani finished");
     self.animateThisImage.center = self.viewCenter;
     [self floatingInSpace:self.animateThisImage];
     self->animating = NO;
+    self.anim1 = nil;
 }
 
 /*

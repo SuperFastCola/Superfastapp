@@ -26,11 +26,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
         @autoreleasepool {
-           //self.soundFile = [[NSBundle mainBundle] URLForResource:@"suki_intro_v1" withExtension:@"mp3"];
-           //self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFile error:nil];
-        }
+          self.soundFile = [[NSBundle mainBundle] URLForResource:@"suki_intro_v1" withExtension:@"mp3"];
+          self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFile forView:self.view andAnimateLabels:@"401,402,403,404" withTimeCues:@"0.5,3,6,8.5" error:nil];
+    }
 
         
     }
@@ -50,8 +49,12 @@
         self.asteroid1 = [[AnimateView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:304]];
     });
     
-    
+}
 
+- (void)viewDidUnload{
+    [self.soundPlayer stopSoundPlayer];
+    self.soundPlayer = nil;
+    self.soundFile = nil;
 }
 
 - (void)viewDidDisappear:(BOOL)animated

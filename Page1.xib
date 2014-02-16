@@ -31,6 +31,42 @@
                     <rect key="frame" x="400" y="558" width="137" height="117"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" tag="401" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcl-jS-gfk">
+                    <rect key="frame" x="157" y="14" width="215" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="82"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="highlightedColor" red="0.24741703842944585" green="1" blue="0.29025315875968527" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="shadowColor" red="1" green="0.0" blue="0.047118742970000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" tag="403" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="worlds wanting of intrepid adventurers!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Isy-a0-PqD">
+                    <rect key="frame" x="242" y="126" width="632" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="35"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="highlightedColor" red="0.24741703840000001" green="1" blue="0.29025315880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="shadowColor" red="1" green="0.0" blue="0.047118742970000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A cold, black void replete with mysterious" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4KT-ia-RIG">
+                    <rect key="frame" x="242" y="89" width="637" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="35"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="highlightedColor" red="0.24741703840000001" green="1" blue="0.29025315880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="shadowColor" red="1" green="0.0" blue="0.047118742970000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" tag="404" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ripe for the pickin's" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ABd-Bn-hLV">
+                    <rect key="frame" x="289" y="670" width="706" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="58"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="highlightedColor" red="0.24741703840000001" green="1" blue="0.29025315880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="shadowColor" red="1" green="0.0" blue="0.047118742970000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
