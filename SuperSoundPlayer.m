@@ -28,7 +28,10 @@
         
         //[self stopSoundPlayer];
         @autoreleasepool {
-            [self performSelector:@selector(primeAudioPlayer) withObject:nil afterDelay:2];
+            
+            //[self performSelector:@selector(primeAudioPlayer) withObject:nil afterDelay:2];
+
+            
             
             if(holder != nil && labels != nil && cues != nil){
                 
@@ -36,11 +39,15 @@
                 self.labelsStringSplit = [[NSMutableArray alloc] initWithArray:[labels componentsSeparatedByString:@","]];
                 self.timeCues = [cues componentsSeparatedByString:@","];
                 
-                [self performSelector:@selector(createLabels) withObject:nil afterDelay:.75];
+                //[self performSelector:@selector(createLabels) withObject:nil afterDelay:.5];
+                [self createLabels];
                 
                 labels = nil;
                 cues = nil;
             }
+            
+            [self primeAudioPlayer];
+
             
         }
     }
@@ -48,18 +55,20 @@
 }
 
 -(void) createLabels{
-
+    
+        @autoreleasepool {
         //have allocate mutable array to be able to use it.
         self.labelsAnimated = [[NSMutableArray alloc] init];
         self.labelsToAnimate = [[NSMutableArray alloc] init];
-        
+
+    
         for(int i=0;i<[self.labelsStringSplit count];i++){
             
             //convert view tag to nsinteger
             NSInteger tag = [[self.labelsStringSplit objectAtIndex:(NSUInteger) i] intValue];
             
             UIView* temp = [self.holderView viewWithTag:tag];
-            temp.transform = CGAffineTransformScale(temp.transform, 0.01, 0.01);            
+            temp.transform = CGAffineTransformScale(temp.transform, 0.01, 0.01);
             
             [self.labelsToAnimate addObject:temp];
             [self.labelsAnimated addObject:[NSNumber numberWithInt:0]];
@@ -69,12 +78,16 @@
         
         formatter = [[NSNumberFormatter alloc] init];
         [formatter setMaximumFractionDigits:1];
+            
+        }
     
 }
 
 -(void) initializeTimer{
-    self.audioTime = [CADisplayLink displayLinkWithTarget:self  selector:@selector(checkTimeOFAudio:)];
-    [self.audioTime addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+     @autoreleasepool {
+        self.audioTime = [CADisplayLink displayLinkWithTarget:self  selector:@selector(checkTimeOFAudio:)];
+        [self.audioTime addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+     }
 }
 
 -(void) zoomInView: (UIView*) label{
@@ -114,7 +127,8 @@
 }
 
 
--(void) stopSoundPlayer{ 
+-(void) stopSoundPlayer{
+    NSLog(@"Stopping");
     [self stop];
     [self.audioTime invalidate];
     [self clearObjects];

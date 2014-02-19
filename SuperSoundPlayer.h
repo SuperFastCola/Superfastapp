@@ -10,12 +10,12 @@
 
 @interface SuperSoundPlayer : AVAudioPlayer <AVAudioPlayerDelegate>
 
-@property (nonatomic, retain) AVAudioPlayer* soundPlayer;
+@property (nonatomic) AVAudioPlayer* soundPlayer;
 @property (nonatomic) CADisplayLink* audioTime;
-@property (nonatomic, retain) NSMutableArray* labelsToAnimate;
-@property (nonatomic, retain) NSMutableArray* labelsAnimated;
+@property (nonatomic) NSMutableArray* labelsToAnimate;
+@property (nonatomic) NSMutableArray* labelsAnimated;
 
-@property (nonatomic, retain) NSArray* timeCues;
+@property (nonatomic) NSArray* timeCues;
 @property (nonatomic) NSMutableArray* labelsStringSplit;
 
 @property (nonatomic) UIView* holderView;

@@ -16,8 +16,6 @@
 
 @implementation Page1
 
-@synthesize soundPlayer;
-@synthesize soundFile;
 @synthesize sun;
 @synthesize asteroid1;
 
@@ -27,11 +25,8 @@
     if (self) {
         // Custom initialization
         @autoreleasepool {
-          self.soundFile = [[NSBundle mainBundle] URLForResource:@"suki_intro_v1" withExtension:@"mp3"];
-          self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFile forView:self.view andAnimateLabels:@"401,402,403,404" withTimeCues:@"0.5,3,6,8.5" error:nil];
-    }
 
-        
+        }
     }
     return self;
 }
@@ -52,16 +47,16 @@
 }
 
 - (void)viewDidUnload{
-    [self.soundPlayer stopSoundPlayer];
-    self.soundPlayer = nil;
-    self.soundFile = nil;
+//    [self.soundPlayer stopSoundPlayer];
+//    self.soundPlayer = nil;
+//    self.soundFile = nil;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self.soundPlayer stopSoundPlayer];
-    self.soundPlayer = nil;
-    self.soundFile = nil;
+//    [self.soundPlayer stopSoundPlayer];
+//    self.soundPlayer = nil;
+//    self.soundFile = nil;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -75,5 +70,7 @@
         self.view = nil;
     }
 }
+
+
 
 @end

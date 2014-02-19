@@ -10,7 +10,7 @@
 #import  <QuartzCore/QuartzCore.h>
 
 @interface AnimateView : UIView
-@property (nonatomic,retain) UIView* animateThisImage;
+@property (nonatomic) UIView* animateThisImage;
 @property (nonatomic) UITapGestureRecognizer* tapAction;
 @property (nonatomic) CGPoint viewCenter;
 @property (nonatomic) UIPanGestureRecognizer* dragObject;

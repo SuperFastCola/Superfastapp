@@ -25,21 +25,36 @@
 @synthesize comicPages;
 @synthesize mainMenu;
 @synthesize pageNavigationLoaded;
-@synthesize soundFiles;
+@synthesize pages_data;
+@synthesize soundPlayer;
+@synthesize soundFileURL;
+@synthesize mainPageNumber;
+@synthesize sound_data_object;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.mainPageNumber = 0;
+        @autoreleasepool {
+            NSURL* jsonFile = [[NSBundle mainBundle] URLForResource:@"sounds_files" withExtension:@"json"];
+            NSData* data = [NSData dataWithContentsOfURL:jsonFile];
+            NSDictionary* json = [NSJSONSerialization
+                                  JSONObjectWithData:data //1
+                                  options:kNilOptions
+                                  error:nil];
+            self.pages_data = [json objectForKey:@"pages"]; //2
         
-//            soundFiles = [[NSMutableArray alloc] init];
-//            [soundFiles addObject:[NSNull null]]; //cover
-//            [soundFiles addObject:@"suki_intro_v1"]; //page1
-//            [soundFiles addObject:[NSNull null]];   //page2
-//            [soundFiles addObject:[NSNull null]];   //page3
-//            [soundFiles addObject:[NSNull null]];   //page4
-//            [soundFiles addObject:[NSNull null]];   //page5
+            
+            // set variables to nil to be released.
+            jsonFile = nil;
+            data = nil;
+            json = nil;
+        }
+    
+        self.sound_data_object = [[NSDictionary alloc] init];
+        
     }
     
     return self;
@@ -94,9 +109,24 @@
     //[self performSelector:@selector(showPageNavigation) withObject:nil afterDelay:1];
 }
 
+-(void) checkForSoundAndPlay{
+    
+//    NSLog(@"---%@",[self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]);
+//    NSLog(@"%i",self.childViewController.pageNumber);
+    
+    if([self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]){
+        self.sound_data_object = [self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]];
+    
+    self.soundFileURL = [[NSBundle mainBundle] URLForResource:[self.sound_data_object objectForKey:@"soundfile"] withExtension:[self.sound_data_object objectForKey:@"audiotype"]];
+        
+    self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view  andAnimateLabels:[self.sound_data_object objectForKey:@"tags"] withTimeCues:[self.sound_data_object objectForKey:@"cues"] error:nil];
+    }
+}
+
 -(void) changePage: (int) toSelected{
     
    // UIViewController* remove = childViewController;
+    
 
     //This command seems to be causing memory warnings
     //[[[self.viewControllers objectAtIndex:0] view] removeFromSuperview];
@@ -110,6 +140,7 @@
     
     [(PageNavViewController*) self.pageNavigation animatePageNavViewOutOfFrame];
     
+    
 //    [remove willMoveToParentViewController:nil];
 //    [remove.view removeFromSuperview];
 //    [remove removeFromParentViewController];
@@ -122,21 +153,21 @@
     
     @autoreleasepool {
         
-    NSUInteger mainPageNumber = [(BookPageViewController *)viewController pageNumber];
+    self.mainPageNumber = [(BookPageViewController *)viewController pageNumber];
         
 //    [viewController willMoveToParentViewController:nil];
 //    [viewController.view removeFromSuperview];
 //    [viewController removeFromParentViewController];
         
     
-    if (mainPageNumber == 0) {
-        mainPageNumber = self.totalPages;
-        return [self viewControllerAtIndex:mainPageNumber];
+    if (self.mainPageNumber == 0) {
+        self.mainPageNumber = self.totalPages;
+        return [self viewControllerAtIndex:self.mainPageNumber];
     }
     
-    mainPageNumber--;
+    self.mainPageNumber--;
     
-    return [self viewControllerAtIndex:mainPageNumber];
+    return [self viewControllerAtIndex:self.mainPageNumber];
     }
 }
 
@@ -144,20 +175,20 @@
     
     @autoreleasepool {
 
-    NSUInteger mainPageNumber = [(BookPageViewController *)viewController pageNumber];
+    self.mainPageNumber = [(BookPageViewController *)viewController pageNumber];
         
 //    [viewController willMoveToParentViewController:nil];
 //    [viewController.view removeFromSuperview];
 //    [viewController removeFromParentViewController];
     
-    if (mainPageNumber == self.totalPages) {
-        mainPageNumber = 0;
-        return [self viewControllerAtIndex:mainPageNumber];
+    if (self.mainPageNumber == self.totalPages) {
+        self.mainPageNumber = 0;
+        return [self viewControllerAtIndex:self.mainPageNumber];
     }
     
-    mainPageNumber++;
+    self.mainPageNumber++;
     
-    return [self viewControllerAtIndex:mainPageNumber];
+    return [self viewControllerAtIndex:self.mainPageNumber];
         
     }
     
@@ -166,12 +197,17 @@
 
 - (BookPageViewController *)viewControllerAtIndex:(NSUInteger)index {
     
+    [self.soundPlayer stopSoundPlayer];
+    
     //BookPageViewController *childViewController = [[BookPageViewController alloc] initWithNibName:@"BookPageViewController" bundle:nil];
 
     //@autoreleasepool {
-        childViewController = [[BookPageViewController alloc] init];
-        childViewController.pageNumber = index;
-        childViewController.delegate = self;
+        self.childViewController = [[BookPageViewController alloc] init];
+        self.childViewController.pageNumber = index;
+        self.childViewController.delegate = self;
+    
+        [self checkForSoundAndPlay];
+
     //}
     
     return childViewController;
@@ -194,7 +230,6 @@
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    
     NSLog(@"Finished %@", [player description]);
     
 }

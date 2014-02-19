@@ -1,0 +1,10 @@
+{"pages":
+	{
+		"page1":{
+			"soundfile": "suki_intro_v1",
+			"audiotype": "mp3",
+			"tags": "401,402,403,404",
+			"cues": "0.5,3,6,8.5"
+		}
+	}
+}
