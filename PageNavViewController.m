@@ -24,12 +24,16 @@
 @synthesize delegate;
 @synthesize currentNavX;
 @synthesize widthDiff;
+@synthesize backedUpVar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil usingPages: (NSMutableArray*) pages
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         pageThumbnailsSource = pages;
+    
+
+        
         
         self.thumbWidth = 150;
         self.thumbHeight = 113;
@@ -98,6 +102,8 @@
     [self resizeMainHolder];
     
     self.delegate = [self parentViewController];
+    
+    self.backedUpVar = 12;
     
     int start = 75;
     int page = 0;

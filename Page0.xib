@@ -7,42 +7,141 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Page0">
             <connections>
-                <outlet property="view" destination="2" id="QiF-lB-egQ"/>
+                <outlet property="view" destination="1" id="MeA-sE-jgN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page0.jpg" id="xUL-Z3-ZtC">
+                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_background.jpg" id="dNt-uv-AmV">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm-01.jpg" id="KxQ-BJ-LCR">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="q5Z-yL-Xd7">
-                    <rect key="frame" x="118" y="20" width="192" height="39"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_clouds2.png" id="20H-Pg-dGN">
+                    <rect key="frame" x="601" y="166" width="352" height="160"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="This is my Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="tester:" destination="-1" eventType="touchUpInside" id="yBA-p7-wEr"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="suw-wp-uba">
-                    <rect key="frame" x="365" y="45" width="46" height="30"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_clouds1.png" id="Zk9-jq-Mb1">
+                    <rect key="frame" x="257" y="141" width="150" height="140"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                </imageView>
+                <view tag="101" contentMode="scaleToFill" id="ASE-ud-tJ6">
+                    <rect key="frame" x="209" y="77" width="827" height="522"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" tag="500" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_flames9.png" id="ZMZ-V3-bjL">
+                            <rect key="frame" x="550" y="53" width="212" height="335"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_missle.png" id="yPH-3T-ofj">
+                            <rect key="frame" x="63" y="71" width="555" height="400"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_eyes1.png" id="Xet-bF-r0s">
+                            <rect key="frame" x="137" y="285" width="82" height="59"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_mouth_v1.png" id="dKY-b4-ceX">
+                            <rect key="frame" x="125" y="347" width="107" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear1.png" id="H58-Yq-NPE">
+                            <rect key="frame" x="192" y="338" width="24" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear2.png" id="waV-jY-TYg">
+                            <rect key="frame" x="174" y="359" width="21" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear3.png" id="6K4-Uv-kLn">
+                            <rect key="frame" x="192" y="404" width="25" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear4.png" id="K1Q-rn-gzj">
+                            <rect key="frame" x="179" y="466" width="26" height="57"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_scan_sign.png" id="vah-E3-JiK">
+                    <rect key="frame" x="365" y="647" width="328" height="109"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird1.png" id="0mO-o9-Ydl">
+                    <rect key="frame" x="133" y="85" width="127" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2.png" id="aPx-dV-wrc">
+                    <rect key="frame" x="733" y="20" width="118" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" id="fwN-9o-tgH">
+                    <rect key="frame" x="102" y="250" width="299" height="187"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="400" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech.png" id="IVE-nu-5Uv">
+                            <rect key="frame" x="0.0" y="0.0" width="299" height="187"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="406" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text6.png" id="Gfw-ss-PKM">
+                            <rect key="frame" x="189" y="44" width="71" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="401" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text1.png" id="g6m-Ci-zXh">
+                            <rect key="frame" x="59" y="38" width="66" height="38"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="405" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text5.png" id="vF8-Bv-c9e">
+                            <rect key="frame" x="85" y="87" width="98" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="403" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text3.png" id="Uom-sH-IlY">
+                            <rect key="frame" x="49" y="22" width="178" height="96"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="404" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text4.png" id="Hi0-6y-M7y">
+                            <rect key="frame" x="56" y="118" width="26" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="402" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text2.png" id="pd5-gU-nlR">
+                            <rect key="frame" x="133" y="17" width="47" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.9839373911" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
-        <image name="Page0.jpg" width="1024" height="768"/>
+        <image name="page_1_scan_sign.png" width="328" height="109"/>
+        <image name="page_1_tlm-01.jpg" width="1025" height="769"/>
+        <image name="page_1_tlm_background.jpg" width="1025" height="769"/>
+        <image name="page_1_tlm_bird1.png" width="127" height="122"/>
+        <image name="page_1_tlm_bird2.png" width="118" height="120"/>
+        <image name="page_1_tlm_clouds1.png" width="150" height="140"/>
+        <image name="page_1_tlm_clouds2.png" width="352" height="160"/>
+        <image name="page_1_tlm_eyes1.png" width="82" height="59"/>
+        <image name="page_1_tlm_flames9.png" width="212" height="335"/>
+        <image name="page_1_tlm_missle.png" width="555" height="401"/>
+        <image name="page_1_tlm_mouth_v1.png" width="107" height="87"/>
+        <image name="page_1_tlm_speech.png" width="299" height="187"/>
+        <image name="page_1_tlm_speech_text1.png" width="66" height="38"/>
+        <image name="page_1_tlm_speech_text2.png" width="47" height="34"/>
+        <image name="page_1_tlm_speech_text3.png" width="178" height="96"/>
+        <image name="page_1_tlm_speech_text4.png" width="26" height="29"/>
+        <image name="page_1_tlm_speech_text5.png" width="98" height="45"/>
+        <image name="page_1_tlm_speech_text6.png" width="71" height="55"/>
+        <image name="page_1_tlm_tear1.png" width="24" height="50"/>
+        <image name="page_1_tlm_tear2.png" width="21" height="51"/>
+        <image name="page_1_tlm_tear3.png" width="25" height="54"/>
+        <image name="page_1_tlm_tear4.png" width="26" height="57"/>
     </resources>
 </document>

@@ -24,6 +24,7 @@
 @property (nonatomic) int widthDiff;
 @property (nonatomic) int leftLimit;
 @property (nonatomic) int rightLimit;
+@property (nonatomic) int backedUpVar;
 
 @property (nonatomic) id delegate;
 

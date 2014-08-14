@@ -100,19 +100,19 @@
     for(int count =0; count<=self.totalPages; count++){
         [self.comicPages addObject:[NSString stringWithFormat:@"%@%i%@", @"page_", count,@"-thumb.jpg"]];
     }
+
     
     //initialize the audio session
     NSError *setCategoryError = nil;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&setCategoryError];
-
     
     //[self performSelector:@selector(showPageNavigation) withObject:nil afterDelay:1];
 }
 
 -(void) checkForSoundAndPlay{
     
-//    NSLog(@"---%@",[self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]);
-//    NSLog(@"%i",self.childViewController.pageNumber);
+    NSLog(@"---%@",[self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]);
+    NSLog(@"%i",self.childViewController.pageNumber);
     
     if([self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]){
         self.sound_data_object = [self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]];
@@ -256,7 +256,10 @@
         [self addChildViewController:self.pageNavigation];
         [self.view addSubview:self.pageNavigation.view];
         self.pageNavigationLoaded = YES;
+        
     }
+        
+        NSLog(@"%i", [(PageNavViewController*) self.pageNavigation backedUpVar]);
         
     }
 
