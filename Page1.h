@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnimateView.h"
+#import "SpringyView.h"
 
 @interface Page1 : UIViewController
-@property (nonatomic, retain) AnimateView* sun;
-@property (nonatomic, retain) AnimateView* asteroid1;
+@property (nonatomic, retain) SpringyView* sun;
+@property (nonatomic, retain) SpringyView* asteroid1;
 
 @end

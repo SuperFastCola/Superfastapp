@@ -113,7 +113,7 @@
         
         float cur = [(NSNumber*) [formatter stringFromNumber:[NSNumber numberWithDouble:self.currentTime]] floatValue];
         
-        NSLog(@"%f",cur);
+        //NSLog(@"%f",cur);
         
         if(cur == now.floatValue && [[self.labelsAnimated objectAtIndex: (NSUInteger)i] intValue]==0){
             

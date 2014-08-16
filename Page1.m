@@ -8,7 +8,7 @@
 
 #import "Page1.h"
 #import "SuperSoundPlayer.h"
-#import "AnimateView.h"
+#import "SpringyView.h"
 
 @interface Page1 ()
 
@@ -35,13 +35,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.sun = [[AnimateView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:302]];
+    self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:302]];
     
     double delayInSeconds = .25;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //code to be executed on the main queue after delay
-        self.asteroid1 = [[AnimateView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:304]];
+        self.asteroid1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:304]];
     });
     
 }
