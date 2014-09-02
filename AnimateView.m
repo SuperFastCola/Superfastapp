@@ -40,6 +40,7 @@
             CGPoint endPosition = CGPointMake(xc, yc);
             
             CGRect newFrame =  self.viewToAnimate.frame;
+            
             newFrame.origin = endPosition;
             
             self.viewToAnimate.frame = newFrame;

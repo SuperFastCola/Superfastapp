@@ -47,6 +47,8 @@
     
     //laod nib for class
     self.page = [[dynamicPageClass alloc] initWithNibName:myNibName bundle:nil];
+        
+    dynamicPageClass = nil;
     
     //add view controller to self
     

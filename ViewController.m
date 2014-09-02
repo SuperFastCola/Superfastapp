@@ -18,7 +18,7 @@
 
 @synthesize parentViewController;
 @synthesize childViewController;
-@synthesize totalPages;
+@synthesize totalPages = _totalPages;
 @synthesize audioSession;
 @synthesize pageNavigation;
 @synthesize viewControllers;
@@ -111,15 +111,19 @@
 
 -(void) checkForSoundAndPlay{
     
-    NSLog(@"---%@",[self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]);
-    NSLog(@"%i",self.childViewController.pageNumber);
+    //NSLog(@"---%@",[self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]);
+    //NSLog(@"%i",self.childViewController.pageNumber);
     
     if([self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]]){
         self.sound_data_object = [self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]];
     
     self.soundFileURL = [[NSBundle mainBundle] URLForResource:[self.sound_data_object objectForKey:@"soundfile"] withExtension:[self.sound_data_object objectForKey:@"audiotype"]];
         
-    self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view  andAnimateLabels:[self.sound_data_object objectForKey:@"tags"] withTimeCues:[self.sound_data_object objectForKey:@"cues"] error:nil];
+    //self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view  andAnimateLabels:[self.sound_data_object objectForKey:@"tags"] withTimeCues:[self.sound_data_object objectForKey:@"cues"] error:nil];
+        
+        self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view withDataObject: self.sound_data_object error:nil];
+        
+        self.sound_data_object = nil;
     }
 }
 
@@ -127,6 +131,7 @@
     
    // UIViewController* remove = childViewController;
     
+    self.mainPageNumber = (NSUInteger) toSelected;
 
     //This command seems to be causing memory warnings
     //[[[self.viewControllers objectAtIndex:0] view] removeFromSuperview];
@@ -313,5 +318,6 @@
         return NO;
     }
 }
+
 
 @end

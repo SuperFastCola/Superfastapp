@@ -21,6 +21,8 @@
 @synthesize outOfBoundsAt;
 @synthesize snapBackAt;
 @synthesize anim1;
+@synthesize detectionPath;
+@synthesize useDetectionPath;
 
 - (id)initWithImageView:(UIImageView*) imageView
 {
@@ -41,6 +43,7 @@
         //snap animation distance
         self.snapBackAt = 60;
         self.animating = NO;
+        self.useDetectionPath = NO;
         self.dragging = NO;
         
         self.dragObject = [[UIPanGestureRecognizer alloc]
@@ -53,11 +56,17 @@
     return self;
 }
 
+-(void) addDetectionPath: (CGRect) path{
+    self.detectionPath = path;
+    self.useDetectionPath = true;
+}
+
 -(void) addTapRecognizer{
     
     tapAction = [[UITapGestureRecognizer alloc]
                                   initWithTarget:self
                                   action:@selector(jiggle:)];
+    
     tapAction.numberOfTapsRequired = 1;
     
     [self.animateThisImage addGestureRecognizer:tapAction];
@@ -82,7 +91,14 @@
 
 - (void)jiggle:(UITapGestureRecognizer *)sender{
     
-    NSLog(@"Tap");
+    CGPoint loc  = [sender locationInView:[self.animateThisImage superview]];
+
+    if (CGRectContainsPoint(self.detectionPath, loc))
+    {
+       // NSLog(@"YES %@", NSStringFromCGRect(self.detectionPath));
+        
+    }
+
 }
 
 -(float)returnRadians:(float)usingPercentage :(float)ofRadians{
@@ -199,6 +215,7 @@
 
 }
 
+
 - (void) panning: (UIPanGestureRecognizer*) gesture {
     
     float newX = 0;
@@ -207,8 +224,10 @@
     float disY = 0;
     float distance = 0;
     CGPoint loc;
+    CGPoint touchedAt;
     
     loc = [gesture translationInView:[self.animateThisImage superview]];
+    touchedAt = [gesture locationInView:[self.animateThisImage superview]];
     
     gesture.delaysTouchesEnded = NO;  
     
@@ -220,6 +239,15 @@
     
     distance = sqrt((disX * disX) + (disY * disY));
     
+    Boolean canProceed = NO;
+    
+    if((self->useDetectionPath && CGRectContainsPoint(self.detectionPath, touchedAt)) || !self->useDetectionPath){
+        canProceed = YES;
+    }
+
+    
+    if(canProceed){
+        
     if(self->animating==NO){
         if(gesture.state == UIGestureRecognizerStateBegan){
             self->dragging = YES;
@@ -249,21 +277,32 @@
         }//snapping
     }
     
-    if(gesture.state == UIGestureRecognizerStateEnded){
-        self->snapping=NO;
-        self->dragging = NO;
-        
-        if(self->animating==NO){
-            [self snapBackAnimation:self.outOfBoundsAt.x:self.outOfBoundsAt.y:distance];
-            self.animateThisImage.center = self.viewCenter;
-        }
-        
-        [gesture setTranslation:CGPointMake(0, 0) inView:[self.animateThisImage superview]];
     }
     
+    if(gesture.state == UIGestureRecognizerStateEnded){
+        
+        self->snapping=NO;
+        
+        if(canProceed || (self->dragging && !canProceed)){
+            self->dragging = NO;
+
+            if(self->animating==NO){
+                    [self snapBackAnimation:self.outOfBoundsAt.x:self.outOfBoundsAt.y:distance];
+                    self.animateThisImage.center = self.viewCenter;
+            }
+            
+            [gesture setTranslation:CGPointMake(0, 0) inView:[self.animateThisImage superview]];
+        }
+        
+    }
+        
+    
+    
     if(gesture.state == UIGestureRecognizerStateCancelled){
+        NSLog(@"Cancelled");
         gesture.enabled = YES;
     }
+
 
 }
 

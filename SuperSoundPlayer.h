@@ -22,8 +22,14 @@
 
 @property (nonatomic) NSNumberFormatter* formatter;
 @property (nonatomic) NSNumber* now;
+@property (nonatomic) float currentMillisecond;
+@property (nonatomic) NSDictionary* animationData;
 
-- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder andAnimateLabels:(NSString*)labels withTimeCues:(NSString*)cues error:(NSError **)outError;
+
+//- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder andAnimateLabels:(NSString*)labels withTimeCues:(NSString*)cues error:(NSError **)outError;
+
+- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder withDataObject:(NSDictionary*)jsonData error:(NSError **)outError;
+
 
 
 -(void) primeAudioPlayer;

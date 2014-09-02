@@ -20,12 +20,15 @@
 @property (nonatomic) Boolean inBounds;
 @property (nonatomic) CAKeyframeAnimation* anim1;
 @property (nonatomic) CGPoint outOfBoundsAt;
+@property (nonatomic) CGRect detectionPath;
+@property (nonatomic) Boolean useDetectionPath;
 @property (nonatomic) float snapBackAt;
 
 - (id)initWithImageView: (UIImageView*) imageView;
 -(void) addTapRecognizer;
 -(void) floatingInSpace: (UIView*) floater;
 -(void)jiggle:(UITapGestureRecognizer *)sender;
+-(void) addDetectionPath: (CGRect) path;
 -(float)returnRadians:(float)usingPercentage :(float)ofRadians;
 -(CGPoint)returnPoint:(float)usingDistance :(float)withX :(float)withY :(float)andRadians;
 -(void) snapBackAnimation:(float)currentX :(float)currentY :(float)distance;

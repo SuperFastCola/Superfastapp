@@ -18,9 +18,13 @@
 @synthesize timeCues;
 @synthesize formatter;
 @synthesize now;
+@synthesize currentMillisecond;
+@synthesize animationData;
 
 
-- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder andAnimateLabels:(NSString*)labels withTimeCues:(NSString*)cues error:(NSError **)outError{
+//- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder andAnimateLabels:(NSString*)labels withTimeCues:(NSString*)cues error:(NSError **)outError{
+    
+- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder withDataObject:(NSDictionary*)jsonData error:(NSError **)outError{
     
     self = [super initWithContentsOfURL:url error:outError];
     
@@ -31,19 +35,19 @@
             
             //[self performSelector:@selector(primeAudioPlayer) withObject:nil afterDelay:2];
 
-            
-            
-            if(holder != nil && labels != nil && cues != nil){
+            //if(holder != nil && labels != nil && cues != nil){
+            if(holder != nil && jsonData != nil){
                 
                 self.holderView = holder;
-                self.labelsStringSplit = [[NSMutableArray alloc] initWithArray:[labels componentsSeparatedByString:@","]];
-                self.timeCues = [cues componentsSeparatedByString:@","];
+                self.animationData = jsonData;
+                
+                self.labelsStringSplit = [[NSMutableArray alloc] initWithArray:[[self.animationData objectForKey:@"tags"] componentsSeparatedByString:@","]];
+                self.timeCues = [[self.animationData objectForKey:@"cues"] componentsSeparatedByString:@","];
                 
                 //[self performSelector:@selector(createLabels) withObject:nil afterDelay:.5];
                 [self createLabels];
-                
-                labels = nil;
-                cues = nil;
+
+                jsonData = nil;
             }
             
             [self primeAudioPlayer];
@@ -106,16 +110,30 @@
 
 
 - (void)checkTimeOFAudio:(CADisplayLink*)displayLink {
-        
+    
+    self.currentMillisecond = (round(self.currentTime*100)) / 100.0;
+
+    //http://stackoverflow.com/questions/497018/is-there-a-function-to-round-a-float-in-c-or-do-i-need-to-write-my-own
+    self.currentMillisecond = self.currentMillisecond*10.0f;
+    self.currentMillisecond = (self.currentMillisecond > (floor(self.currentMillisecond)+0.5f)) ? ceil(self.currentMillisecond) : floor(self.currentMillisecond);
+    self.currentMillisecond = self.currentMillisecond/10.0f;
+            
     for(int i=0;i<[self.timeCues count];i++){
         
-        now = [self.timeCues objectAtIndex: (NSUInteger)i];;
+        self.now = [self.timeCues objectAtIndex: (NSUInteger)i];
         
-        float cur = [(NSNumber*) [formatter stringFromNumber:[NSNumber numberWithDouble:self.currentTime]] floatValue];
+        int usedAlready = [[self.labelsAnimated objectAtIndex: (NSUInteger)i] intValue];
         
-        //NSLog(@"%f",cur);
+        //float cur = [(NSNumber*) [self.formatter stringFromNumber:[NSNumber numberWithDouble:self.currentTime]] floatValue];
+        //float cur = self.currentTime;
         
-        if(cur == now.floatValue && [[self.labelsAnimated objectAtIndex: (NSUInteger)i] intValue]==0){
+        float nowtest = (round(self.now.floatValue*100)) / 100.0;
+
+        
+        //NSLog(@"%f %f",nowtest,  self.currentMillisecond);
+
+        
+        if( self.currentMillisecond == nowtest && usedAlready==0){
             
             [self.labelsAnimated replaceObjectAtIndex:(NSUInteger)i withObject:[NSNumber numberWithInt:1]];
             [self zoomInView:[self.labelsToAnimate objectAtIndex: (NSUInteger)i]];
@@ -123,10 +141,15 @@
     }
 }
 
--(void) primeAudioPlayer{
-    [self prepareToPlay];
+-(void) playAudio{
     [self play];
     [self initializeTimer];
+}
+
+-(void) primeAudioPlayer{
+    [self prepareToPlay];
+    [self performSelector:@selector(playAudio) withObject:nil afterDelay:1];
+
 }
 
 

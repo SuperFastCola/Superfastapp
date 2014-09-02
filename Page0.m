@@ -19,6 +19,8 @@
 
 @synthesize audioFile;
 @synthesize missle;
+@synthesize missleEyes;
+@synthesize missleBlinkImages;
 @synthesize bird1;
 @synthesize bird2;
 @synthesize rocketFire;
@@ -28,6 +30,13 @@
 @synthesize tear2;
 @synthesize tear3;
 @synthesize tear4;
+@synthesize bird1BlinkImages;
+@synthesize bird2BlinkImages;
+@synthesize birdBlinker;
+@synthesize missleMouth1;
+@synthesize missleMouth2;
+@synthesize missleMouth3;
+@synthesize missleMouth4;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,6 +71,7 @@
     
 -(void)startRocketFire
 {
+    @autoreleasepool {
     self.animationImages = [NSArray arrayWithObjects:
                                 [UIImage imageNamed:@"page_1_tlm_flames0.png"],
                                 [UIImage imageNamed:@"page_1_tlm_flames1.png"],
@@ -81,19 +91,137 @@
 //                                [UIImage imageNamed:@"page_1_tlm_flames0.png"],
 
                                 nil];
-    
-    self.rocketFire = (UIImageView*)[self.view viewWithTag:500];
-    self.rocketFire.animationImages = self.animationImages;
-    self.rocketFire.animationRepeatCount = 0;
-    self.rocketFire.animationDuration= 5;
+        
+        self.rocketFire = (UIImageView*)[self.view viewWithTag:500];
+        self.rocketFire.animationImages = self.animationImages;
+        self.rocketFire.animationRepeatCount = 0;
+        self.rocketFire.animationDuration= 5;
+        
+    }
     [self.rocketFire startAnimating];
 }
+
+-(void)startBlinking{
+    
+    @autoreleasepool {
+        
+        float blinkDuration = 0.35;
+        self.bird1BlinkImages = [NSArray arrayWithObjects:
+                                 [UIImage imageNamed:@"page_1_tlm_bird1_1.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_bird1_2.png"],
+                                 nil
+                                 ];
+        
+        ((UIImageView*) self.bird1.animateThisImage).animationImages =  self.bird1BlinkImages;
+        ((UIImageView*) self.bird1.animateThisImage).animationRepeatCount = 1;
+        ((UIImageView*) self.bird1.animateThisImage).animationDuration = blinkDuration;
+
+        self.bird2BlinkImages = [NSArray arrayWithObjects:
+                                 [UIImage imageNamed:@"page_1_tlm_bird2_1.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_bird2_2.png"],
+                                 nil
+                                 ];
+        ((UIImageView*) self.bird2.animateThisImage).animationImages =  self.bird2BlinkImages;
+        ((UIImageView*) self.bird2.animateThisImage).animationRepeatCount = 1;
+        ((UIImageView*) self.bird2.animateThisImage).animationDuration = blinkDuration;
+        
+        
+        self.missleBlinkImages = [NSArray arrayWithObjects:
+                                 [UIImage imageNamed:@"page_1_tlm_eyes_v1.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_eyes_v2.png"],
+                                 nil
+                                 ];
+        self.missleEyes = (UIImageView*) [self.view viewWithTag:202];
+        self.missleEyes.animationImages = self.missleBlinkImages;
+        self.missleEyes.animationRepeatCount = 1;
+        self.missleEyes.animationDuration = blinkDuration;
+    
+        self.birdBlinker = [NSTimer scheduledTimerWithTimeInterval:5  target:self selector:@selector(playBlinkers) userInfo:nil repeats:YES];
+    }
+}
+
+
+-(void)playBlinkers{
+    
+    [((UIImageView*) self.bird1.animateThisImage) stopAnimating];
+    [((UIImageView*) self.bird2.animateThisImage) stopAnimating];
+    [self.missleEyes stopAnimating];
+    
+    [((UIImageView*) self.bird1.animateThisImage) startAnimating];
+    
+    int blinkRandom = 4;
+    float randomBlink =  rand() % blinkRandom;
+
+    dispatch_time_t blinkTime = dispatch_time(DISPATCH_TIME_NOW, randomBlink * NSEC_PER_SEC);
+    dispatch_after(blinkTime, dispatch_get_main_queue(), ^(void){
+       //code to be executed on the main queue after delay
+       [((UIImageView*) self.bird2.animateThisImage) startAnimating];
+    });
+    
+    randomBlink =  rand() % blinkRandom;
+    
+    dispatch_time_t missleBlinkTime = dispatch_time(DISPATCH_TIME_NOW, randomBlink * NSEC_PER_SEC);
+    dispatch_after(missleBlinkTime, dispatch_get_main_queue(), ^(void){
+        //code to be executed on the main queue after delay
+        [self.missleEyes startAnimating];
+    });
+
+}
+
+-(void) drawMissleMouthParts{
+    
+    NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"page_1_tlm_mouth_v1" ofType:@"png"];
+    self.missleMouth1 = [[UIImageView alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:imagePath]];
+    
+    imagePath = [[NSBundle mainBundle] pathForResource:@"page_1_tlm_mouth_v2" ofType:@"png"];
+    self.missleMouth2 = [[UIImageView alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:imagePath]];
+    
+    imagePath = [[NSBundle mainBundle] pathForResource:@"page_1_tlm_mouth_v3" ofType:@"png"];
+    self.missleMouth3 = [[UIImageView alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:imagePath]];
+    
+    imagePath = [[NSBundle mainBundle] pathForResource:@"page_1_tlm_mouth_v4" ofType:@"png"];
+    self.missleMouth4 = [[UIImageView alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:imagePath]];
+    
+    imagePath = nil;
+    
+    CGRect mouthArea = [self.view viewWithTag:1399].frame;
+    
+    self.missleMouth1.frame = mouthArea;
+    self.missleMouth2.frame = mouthArea;
+    self.missleMouth3.frame = mouthArea;
+    self.missleMouth4.frame = mouthArea;
+    
+    self.missleMouth1.tag = 1400;
+    self.missleMouth2.tag = 1401;
+    self.missleMouth3.tag = 1402;
+    self.missleMouth4.tag = 1403;
+    
+    self.missleMouth1.alpha = 0;
+    self.missleMouth2.alpha = 0;
+    self.missleMouth3.alpha = 0;
+    self.missleMouth4.alpha = 0;
+    
+    [[self.view viewWithTag:101] addSubview:self.missleMouth1];
+    [[self.view viewWithTag:101] addSubview:self.missleMouth2];
+    [[self.view viewWithTag:101] addSubview:self.missleMouth3];
+    [[self.view viewWithTag:101] addSubview:self.missleMouth4];
+    
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     @autoreleasepool {
+         
+         
+    CGRect missleHitArea = CGRectMake(290, 340, 500, 110);
+         
     // Do any additional setup after loading the view from its nib.
     self.missle = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:101]];
+         
+    [self.missle addDetectionPath:missleHitArea];
+
     
     double delayInSeconds = .25;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -108,6 +236,7 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //code to be executed on the main queue after delay
         self.bird2 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:201]];
+        [self startBlinking];
     });
     
    // [self animateClouds:(UIImageView*)[self.view viewWithTag:600] inThisAmountOfTime:10];
@@ -138,6 +267,7 @@
     self.maskImage = [UIImage imageNamed:@"page_1_tlm_cloud_mask.png"];
     self.mask.contents = (id)[self.maskImage CGImage];
     self.mask.frame = CGRectMake(0, 0,self.maskImage.size.width, self.maskImage.size.height);
+
     
     [self.view viewWithTag:800].layer.mask = self.mask;
     [self.view viewWithTag:800].layer.masksToBounds = YES;
@@ -165,10 +295,9 @@
                   andDelayRepeatfor:1];
 
     
-    
+     }
+    [self drawMissleMouthParts];
     [self startRocketFire];
-
-    
 }
 
 -(IBAction)tester:(id)sender{
@@ -183,6 +312,43 @@
     if([self isViewLoaded] && [self.view window]== nil){
         self.view = nil;
     }
+}
+
+-(void) nullifyObjects{
+    NSLog(@"Destroying Objects");
+    
+    [self.birdBlinker invalidate];
+    self.audioFile = nil;
+    self.missle = nil;
+    self.missleEyes = nil;
+    self.bird1 = nil;
+    self.bird2 = nil;
+    self.cloud1 = nil;
+    self.cloud2 = nil;
+    self.tear1 = nil;
+    self.tear2 = nil;
+    self.tear3 = nil;
+    self.tear4 = nil;
+    
+    self.rocketFire = nil;
+    self.animationImages = nil;
+    self.bird1BlinkImages = nil;
+    self.bird2BlinkImages = nil;
+    self.birdBlinker = nil;
+    
+    self.mask = nil;
+    self.maskImage = nil;
+    
+    self.view = nil;
+}
+
+- (void)viewDidUnload{
+    [self nullifyObjects];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+   [self nullifyObjects];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
