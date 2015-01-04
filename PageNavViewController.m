@@ -39,7 +39,7 @@
         self.thumbHeight = 113;
         self.thumbSpacing = 20;
         
-        int viewSize = [pageThumbnailsSource count] * (self.thumbWidth + self.thumbSpacing);
+        int viewSize = (int)([pageThumbnailsSource count] * (self.thumbWidth + self.thumbSpacing));
         viewSize -= self.thumbSpacing;
         self.thumbsHolder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewSize, 113)];
         self.thumbsHolder.userInteractionEnabled = YES;

@@ -16,10 +16,16 @@
 @synthesize holderView;
 @synthesize labelsStringSplit;
 @synthesize timeCues;
+@synthesize mouthCues;
+@synthesize mouthTags;
+@synthesize mouthsToAnimate;
+@synthesize mouthsAnimated;
 @synthesize formatter;
 @synthesize now;
 @synthesize currentMillisecond;
 @synthesize animationData;
+@synthesize mouths;
+@synthesize defaultMouthTag;
 
 
 //- (id)initWithContentsOfURL:(NSURL *)url forView:(UIView*) holder andAnimateLabels:(NSString*)labels withTimeCues:(NSString*)cues error:(NSError **)outError{
@@ -44,6 +50,11 @@
                 self.labelsStringSplit = [[NSMutableArray alloc] initWithArray:[[self.animationData objectForKey:@"tags"] componentsSeparatedByString:@","]];
                 self.timeCues = [[self.animationData objectForKey:@"cues"] componentsSeparatedByString:@","];
                 
+                self.mouthCues = [[self.animationData objectForKey:@"mouthcues"] componentsSeparatedByString:@","];
+                self.mouthTags = [[NSMutableArray alloc] initWithArray:[[self.animationData objectForKey:@"mouthparts"] componentsSeparatedByString:@","]];
+                
+                self.defaultMouthTag = (NSInteger) [[self.animationData objectForKey:@"defaultmouth"] integerValue];
+                
                 //[self performSelector:@selector(createLabels) withObject:nil afterDelay:.5];
                 [self createLabels];
 
@@ -64,24 +75,52 @@
         //have allocate mutable array to be able to use it.
         self.labelsAnimated = [[NSMutableArray alloc] init];
         self.labelsToAnimate = [[NSMutableArray alloc] init];
-
-    
-        for(int i=0;i<[self.labelsStringSplit count];i++){
             
+        self.mouths = NO;
+            
+        if(self.mouthCues!=nil){
+            self.mouths = YES;
+        }
+            
+        for(int i=0;i<[self.labelsStringSplit count];i++){
             //convert view tag to nsinteger
             NSInteger tag = [[self.labelsStringSplit objectAtIndex:(NSUInteger) i] intValue];
             
             UIView* temp = [self.holderView viewWithTag:tag];
             temp.transform = CGAffineTransformScale(temp.transform, 0.01, 0.01);
-            
             [self.labelsToAnimate addObject:temp];
             [self.labelsAnimated addObject:[NSNumber numberWithInt:0]];
-            
             temp= nil;
+            //tag = nil;
         }
+            
+        if(self.mouths){
+            
+            self.mouthsToAnimate = [[NSMutableArray alloc] init];
+            self.mouthsAnimated = [[NSMutableArray alloc] init];
+            
+            for(int i=0;i<[self.mouthCues count];i++){
+                //convert view tag to nsinteger
+                NSInteger tag = [[self.mouthTags objectAtIndex:(NSUInteger) i] intValue];
+                
+                UIView* temp = [self.holderView viewWithTag:tag];
+                
+                if(tag !=self.defaultMouthTag){
+                    temp.alpha = 0;
+                }
+                [self.mouthsToAnimate addObject:(id)temp];
+                
+                [self.mouthsAnimated addObject:[NSNumber numberWithInt:0]];
+                temp= nil;
+                //tag = 0;
+            }
+            
+            
+        }
+            
         
-        formatter = [[NSNumberFormatter alloc] init];
-        [formatter setMaximumFractionDigits:1];
+//        formatter = [[NSNumberFormatter alloc] init];
+//        [formatter setMaximumFractionDigits:1];
             
         }
     
@@ -108,6 +147,32 @@
                      completion:nil];
 }
 
+-(void) showMouthView: (UIView*) mouth{
+    
+    void (^animView) (void) = ^{
+        mouth.alpha = 1.0;
+    };
+    
+    [UIView animateWithDuration:.1
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:animView
+                     completion:nil];
+}
+
+-(void) hideMouthView: (UIView*) mouth{
+    
+    void (^animView) (void) = ^{
+        mouth.alpha = 0.0;
+    };
+    
+    [UIView animateWithDuration:.05
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:animView
+                     completion:nil];
+}
+
 
 - (void)checkTimeOFAudio:(CADisplayLink*)displayLink {
     
@@ -117,21 +182,21 @@
     self.currentMillisecond = self.currentMillisecond*10.0f;
     self.currentMillisecond = (self.currentMillisecond > (floor(self.currentMillisecond)+0.5f)) ? ceil(self.currentMillisecond) : floor(self.currentMillisecond);
     self.currentMillisecond = self.currentMillisecond/10.0f;
-            
+    
+    float nowtest;
+    
     for(int i=0;i<[self.timeCues count];i++){
         
         self.now = [self.timeCues objectAtIndex: (NSUInteger)i];
+        
+        nowtest = (round(self.now.floatValue*100)) / 100.0;
         
         int usedAlready = [[self.labelsAnimated objectAtIndex: (NSUInteger)i] intValue];
         
         //float cur = [(NSNumber*) [self.formatter stringFromNumber:[NSNumber numberWithDouble:self.currentTime]] floatValue];
         //float cur = self.currentTime;
         
-        float nowtest = (round(self.now.floatValue*100)) / 100.0;
-
-        
         //NSLog(@"%f %f",nowtest,  self.currentMillisecond);
-
         
         if( self.currentMillisecond == nowtest && usedAlready==0){
             
@@ -139,6 +204,32 @@
             [self zoomInView:[self.labelsToAnimate objectAtIndex: (NSUInteger)i]];
         }
     }
+    
+    if(self.mouths){
+        
+        for(int i=0;i<[self.mouthCues count];i++){
+        
+        self.now = [self.mouthCues objectAtIndex: (NSUInteger)i];
+        nowtest = (round(self.now.floatValue*100)) / 100.0;
+            
+        int mouthUsedAlready = [[self.mouthsAnimated objectAtIndex: (NSUInteger)i] intValue];
+        
+            if( self.currentMillisecond == nowtest && mouthUsedAlready==0){
+                
+                for(id item in self.mouthsToAnimate){
+                    [self hideMouthView: (UIImageView*)item];
+                }
+                
+                [self.mouthsAnimated replaceObjectAtIndex:(NSUInteger)i withObject:[NSNumber numberWithInt:1]];
+                
+                //NSLog(@"%@ %i",[[self.mouthsToAnimate objectAtIndex: (NSUInteger)i] description],(NSUInteger)i);
+                
+                //add mouth objects to XIB
+                [self showMouthView:[self.mouthsToAnimate objectAtIndex: (NSUInteger)i]];
+            }
+        }//end for
+    }//end if self.mouths
+
 }
 
 -(void) playAudio{

@@ -75,17 +75,20 @@
     self.view.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     
     
-    self.mainMenu = [[UIButton alloc] initWithFrame:CGRectMake(10, [UIScreen mainScreen].bounds.size.width - 80, 152, 65)];
+    self.mainMenu = [[UIButton alloc] initWithFrame:CGRectMake(10, [UIScreen mainScreen].bounds.size.height - 80, 152, 65)];
     
     [self.mainMenu setBackgroundImage:[UIImage imageNamed:@"page_nav_menu.png"] forState:UIControlStateNormal];
     [self.view addSubview:self.mainMenu];
     [self.mainMenu addTarget:self action:@selector(showPageNavigation:) forControlEvents:UIControlEventTouchDown];
+
+    
 
     //adds the initial page view controller
     [self addChildViewController:self.pageController];
     [self.view insertSubview:[self.pageController view] belowSubview:self.mainMenu];
     [self.pageController didMoveToParentViewController:self];
     
+
     [self changePage:0];
 
     
@@ -100,6 +103,10 @@
     for(int count =0; count<=self.totalPages; count++){
         [self.comicPages addObject:[NSString stringWithFormat:@"%@%i%@", @"page_", count,@"-thumb.jpg"]];
     }
+    
+    
+    //NSLog(@"%f %f", self.mainMenu.frame.origin.x, self.mainMenu.frame.origin.y);
+
 
     
     //initialize the audio session
@@ -208,7 +215,7 @@
 
     //@autoreleasepool {
         self.childViewController = [[BookPageViewController alloc] init];
-        self.childViewController.pageNumber = index;
+        self.childViewController.pageNumber = (int)index;
         self.childViewController.delegate = self;
     
         [self checkForSoundAndPlay];
@@ -231,7 +238,6 @@
 
 - (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withOptions:(NSUInteger)flags{
     NSLog(@"End Interruption %@", [player description]);
-      NSLog(@"Flags %i", flags);
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {

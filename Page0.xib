@@ -79,7 +79,7 @@
                             <rect key="frame" x="550" y="53" width="212" height="335"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_missle.png" id="yPH-3T-ofj">
+                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="900" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_missle.png" id="yPH-3T-ofj">
                             <rect key="frame" x="63" y="71" width="555" height="400"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
@@ -87,7 +87,19 @@
                             <rect key="frame" x="137" y="285" width="82" height="59"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="1399" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_mouth_v1.png" id="dKY-b4-ceX">
+                        <imageView userInteractionEnabled="NO" tag="1399" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_mouth_v1.png" id="dKY-b4-ceX">
+                            <rect key="frame" x="125" y="347" width="107" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.0" tag="1400" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_mouth_v2.png" id="Ucy-yt-oIq">
+                            <rect key="frame" x="125" y="347" width="107" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="1401" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_mouth_v3.png" id="hDH-Tu-Mfy">
+                            <rect key="frame" x="125" y="347" width="107" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="1402" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_mouth_v4.png" id="vS4-by-T63">
                             <rect key="frame" x="125" y="347" width="107" height="87"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -168,6 +180,9 @@
         <image name="page_1_tlm_intro_text6.png" width="248" height="54"/>
         <image name="page_1_tlm_missle.png" width="555" height="401"/>
         <image name="page_1_tlm_mouth_v1.png" width="107" height="87"/>
+        <image name="page_1_tlm_mouth_v2.png" width="107" height="87"/>
+        <image name="page_1_tlm_mouth_v3.png" width="107" height="87"/>
+        <image name="page_1_tlm_mouth_v4.png" width="107" height="87"/>
         <image name="page_1_tlm_speech.png" width="299" height="187"/>
         <image name="page_1_tlm_speech_text1.png" width="66" height="38"/>
         <image name="page_1_tlm_speech_text2.png" width="47" height="34"/>

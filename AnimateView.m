@@ -13,14 +13,14 @@
 @synthesize viewToAnimate = _viewToAnimate;
 @synthesize animationOptions;
 
--(id)initWithUIImageView:(UIImageView*)image thisAmountofSeconds: (float)seconds delayedFor:(float)delay andToXCoor:(float)xcoor andToYCoor:(float)ycoor andToOpacity: (float) opacity withOptions: (NSUInteger) opts andDelayRepeatfor: (float) repeatDelay
-{
+-(id)initWithUIImageView:(UIImageView*)image thisAmountofSeconds: (float)seconds delayedFor:(float)delay andToXCoor:(float)xcoor andToYCoor:(float)ycoor andToOpacity: (float) opacity withOptions: (NSUInteger) opts andHideAfter: (BOOL) hide{
     self = [super init];
     
     if(self)
     {
     
         self.viewToAnimate = image;
+
 
         float secs = (seconds)?seconds:.5;
         float del = (delay)?delay:0;
@@ -46,13 +46,32 @@
             self.viewToAnimate.frame = newFrame;
             self.viewToAnimate.alpha = opa;
         };
-
+        
+        void (^completeBlock) (BOOL) = ^(BOOL success){
+            
+            NSLog(@"%lu",(long)self.viewToAnimate.tag);
+            
+            if(hide){
+            self.viewToAnimate.alpha = 1;
+            [UIView animateWithDuration:secs
+                                  delay:0
+                                options: 0
+                             animations:^{
+                                self.viewToAnimate.alpha = 0;
+                             }
+                             completion:nil];
+            }
+            
+        };
+        
+        
 
         [UIView animateWithDuration:secs
                               delay:del
                             options: self.animationOptions
                          animations:animBlock
-                         completion:nil];
+                         completion:completeBlock];
+
             
         }
     

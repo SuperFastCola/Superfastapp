@@ -14,7 +14,7 @@
 #import "SuperSoundPlayer.h"
 
 
-@interface ViewController : UIViewController <UIPageViewControllerDataSource,pageTurner,removePageNavController>
+@interface ViewController : UIViewController <UIPageViewControllerDataSource, pageTurner,removePageNavController>
 
 @property (nonatomic, retain) UIPageViewController *pageController;
 @property (nonatomic, retain) NSArray * viewControllers;

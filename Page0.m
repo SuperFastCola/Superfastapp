@@ -10,6 +10,7 @@
 #import "SuperSoundPlayer.h"
 #import "SpringyView.h"
 #import "AnimateView.h"
+#import "BookPageViewController.h"
 
 @interface Page0 ()
 
@@ -37,6 +38,16 @@
 @synthesize missleMouth2;
 @synthesize missleMouth3;
 @synthesize missleMouth4;
+@synthesize mouthAnimation;
+@synthesize mouthTags;
+@synthesize mouthControl;
+
+@synthesize missleHitArea;
+@synthesize mouth1;
+@synthesize mouth2;
+@synthesize mouth3;
+@synthesize mouth4;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -214,33 +225,33 @@
     [super viewDidLoad];
      @autoreleasepool {
          
-         
-    CGRect missleHitArea = CGRectMake(290, 340, 500, 110);
+    self.missleHitArea  = CGRectMake(290, 340, 500, 110);
          
     // Do any additional setup after loading the view from its nib.
-    self.missle = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:101]];
+    self.missle = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:101] andPlaySound:@"lonely_page1_isolated"];
+    self.missle.delegate = self;
          
-    [self.missle addDetectionPath:missleHitArea];
+    [self.missle addDetectionPath:self.missleHitArea];
+    self.missle.pageNumber = 0;
+    //[self.missle animateMouthOnTouch];
 
-    
     double delayInSeconds = .25;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
 
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //code to be executed on the main queue after delay
-        self.bird1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200]];
+        self.bird1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200] andPlaySound:@"bird_tweet"];
     });
     
     delayInSeconds = .45;
     popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //code to be executed on the main queue after delay
-        self.bird2 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:201]];
+        self.bird2 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:201] andPlaySound:@"bird_tweet"];
         [self startBlinking];
     });
     
    // [self animateClouds:(UIImageView*)[self.view viewWithTag:600] inThisAmountOfTime:10];
-
     
     self.cloud1 = [[AnimateView alloc]
                     initWithUIImageView:(UIImageView*)[self.view viewWithTag:600]
@@ -250,7 +261,8 @@
                     andToYCoor:0
                     andToOpacity:1.0
                     withOptions:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear)
-                   andDelayRepeatfor:0];
+                    andHideAfter: NO
+                   ];
     
     self.cloud2 = [[AnimateView alloc]
                    initWithUIImageView:(UIImageView*)[self.view viewWithTag:601]
@@ -260,15 +272,15 @@
                    andToYCoor:0
                    andToOpacity:1.0
                    withOptions:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear)
-                   andDelayRepeatfor:0];
+                    andHideAfter: NO
+                   ];
     
     
     self.mask = [CALayer layer];
     self.maskImage = [UIImage imageNamed:@"page_1_tlm_cloud_mask.png"];
     self.mask.contents = (id)[self.maskImage CGImage];
     self.mask.frame = CGRectMake(0, 0,self.maskImage.size.width, self.maskImage.size.height);
-
-    
+     
     [self.view viewWithTag:800].layer.mask = self.mask;
     [self.view viewWithTag:800].layer.masksToBounds = YES;
     
@@ -282,7 +294,8 @@
                    andToYCoor:550
                    andToOpacity:0.1
                    withOptions:UIViewAnimationOptionRepeat
-                   andDelayRepeatfor:1];
+                   andHideAfter: NO
+                  ];
     
     self.tear2 = [[AnimateView alloc]
                   initWithUIImageView:(UIImageView*)[self.view viewWithTag:902]
@@ -292,7 +305,8 @@
                   andToYCoor:550
                   andToOpacity:0.1
                   withOptions:UIViewAnimationOptionRepeat
-                  andDelayRepeatfor:1];
+                  andHideAfter: NO
+                  ];
 
     
      }
@@ -303,6 +317,69 @@
 -(IBAction)tester:(id)sender{
     NSLog(@"Touch");
 }
+
+-(void) showMouthView: (UIView*) mouth{
+    
+    void (^animView) (void) = ^{
+        mouth.alpha = 1.0;
+    };
+    
+    [UIView animateWithDuration:.1
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:animView
+                     completion:nil];
+}
+
+-(void) hideMouthView: (UIView*) mouth{
+    
+    void (^animView) (void) = ^{
+        mouth.alpha = 0.0;
+    };
+    
+    [UIView animateWithDuration:.05
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:animView
+                     completion:nil];
+}
+
+
+- (void)playDialog{
+    NSLog(@"Play Dialog");
+    
+    //1399,1401,1402,1399
+    [self showMouthView:[self.view viewWithTag:1402]];
+    [self hideMouthView:[self.view viewWithTag:1399]];
+    
+    double delayInSeconds = .25;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self showMouthView:[self.view viewWithTag:1401]];
+        [self.view viewWithTag:1402].alpha = 0;
+        [self.view viewWithTag:1403].alpha = 0;
+    });
+    
+    delayInSeconds = .5;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.view viewWithTag:1399].alpha = 0;
+        [self hideMouthView:[self.view viewWithTag:1401]];
+        [self showMouthView:[self.view viewWithTag:1402]];
+        [self.view viewWithTag:1403].alpha = 0;
+    });
+    
+    delayInSeconds = .8;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.view viewWithTag:1399].alpha = 0;
+        [self.view viewWithTag:1401].alpha = 0;
+        [self hideMouthView:[self.view viewWithTag:1402]];
+        [self showMouthView:[self.view viewWithTag:1399]];
+    });
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -329,6 +406,7 @@
     self.tear2 = nil;
     self.tear3 = nil;
     self.tear4 = nil;
+    self.mouthAnimation =nil;
     
     self.rocketFire = nil;
     self.animationImages = nil;
@@ -343,11 +421,13 @@
 }
 
 - (void)viewDidUnload{
+    [super viewDidUnload];
     [self nullifyObjects];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:NO];
    [self nullifyObjects];
 }
 

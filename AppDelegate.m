@@ -54,8 +54,8 @@
 {
     if(self.appInBackground){
         ViewController *myController = (ViewController*) self.window.rootViewController;
-        NSLog(@"Page Number from Background %u",myController.mainPageNumber);
-        [myController changePage:myController.mainPageNumber];
+        NSLog(@"Page Number from Background %lu",(long)myController.mainPageNumber);
+        [myController changePage:(int)myController.mainPageNumber];
         myController = nil;
     }
 }

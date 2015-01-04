@@ -20,6 +20,7 @@
 //@synthesize pageLabel;
 @synthesize page;
 @synthesize delegate;
+@synthesize sound_data_object;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -100,6 +101,15 @@
     [self loadSelectedPage:pageNumber:NO];
     
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidUnLoad{
+    self.sound_data_object = nil;
+    
+    //@property (nonatomic, retain) IBOutlet UILabel* pageLabel;
+    self.page = nil;
+    self.delegate = nil;
+
 }
 
 - (void)didReceiveMemoryWarning

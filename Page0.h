@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 
-@interface Page0 : UIViewController
+@interface Page0 : UIViewController <dialoger>
 
 @property (nonatomic) NSString* audioFile;
 @property (nonatomic, retain) SpringyView* missle;
@@ -25,6 +25,11 @@
 @property (nonatomic, retain) AnimateView* tear3;
 @property (nonatomic, retain) AnimateView* tear4;
 
+@property (nonatomic, retain) AnimateView* mouth1;
+@property (nonatomic, retain) AnimateView* mouth2;
+@property (nonatomic, retain) AnimateView* mouth3;
+@property (nonatomic, retain) AnimateView* mouth4;
+
 @property (nonatomic,retain) UIImageView* rocketFire;
 @property (nonatomic,retain) UIImageView* missleEyes;
 @property (nonatomic, retain) NSArray *missleBlinkImages;
@@ -36,6 +41,12 @@
 @property (nonatomic, retain) UIImageView* missleMouth2;
 @property (nonatomic, retain) UIImageView* missleMouth3;
 @property (nonatomic, retain) UIImageView* missleMouth4;
+@property (nonatomic, retain) NSArray* mouthTags;
+@property (nonatomic) CAKeyframeAnimation* mouthAnimation;
+@property (nonatomic) UITapGestureRecognizer* mouthControl;
+
+@property (nonatomic) CGRect missleHitArea;
+
 
 @property (nonatomic, retain) CALayer *mask;
 @property (nonatomic, retain) UIImage *maskImage;
@@ -46,5 +57,6 @@
 -(void)playBlinkers;
 -(void) nullifyObjects;
 -(IBAction)tester:(id)sender;
+- (void)playDialog;
 
 @end

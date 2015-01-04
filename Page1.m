@@ -35,18 +35,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:302]];
+    self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:302] andPlaySound:nil];
     
     double delayInSeconds = .25;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //code to be executed on the main queue after delay
-        self.asteroid1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:304]];
+        self.asteroid1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:304] andPlaySound:nil];
     });
     
 }
 
 - (void)viewDidUnload{
+    [super viewDidUnload];
 //    [self.soundPlayer stopSoundPlayer];
 //    self.soundPlayer = nil;
 //    self.soundFile = nil;
@@ -54,6 +55,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:NO];
 //    [self.soundPlayer stopSoundPlayer];
 //    self.soundPlayer = nil;
 //    self.soundFile = nil;

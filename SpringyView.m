@@ -7,6 +7,7 @@
 //
 
 #import "SpringyView.h"
+#import "BookPageViewController.h"
 
 @implementation SpringyView
 
@@ -23,17 +24,30 @@
 @synthesize anim1;
 @synthesize detectionPath;
 @synthesize useDetectionPath;
+@synthesize soundPlayer;
+@synthesize soundFileUrl;
+//@synthesize animateTagsOnTouch;
+//@synthesize animateTagsWithCues;
+@synthesize pageNumber;
+@synthesize delegate;
 
-- (id)initWithImageView:(UIImageView*) imageView
+- (id)initWithImageView:(UIImageView*) imageView andPlaySound: (NSString*) soundfile
 {
     self = [super initWithFrame:imageView.frame];
     
     if (self && self != nil) {
         
+        if(soundfile != NULL){
+            self.soundFileUrl = [[NSBundle mainBundle] URLForResource:soundfile withExtension:@"mp3"];
+            self.soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.soundFileUrl error:nil];
+            [self.soundPlayer prepareToPlay];
+        }
+        
         // Initialization code
         self.animateThisImage = (UIView*) imageView;
         self.viewCenter = self.animateThisImage.center;
         [self floatingInSpace:self.animateThisImage];
+
        
         [self addTapRecognizer];
         
@@ -56,20 +70,68 @@
     return self;
 }
 
+-(void)animateMouthOnTouch{
+
+    NSURL* jsonFile = [[NSBundle mainBundle] URLForResource:@"sounds_files" withExtension:@"json"];
+    NSData* data = [NSData dataWithContentsOfURL:jsonFile];
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data //1
+                          options:kNilOptions
+                          error:nil];
+        
+    json = [json objectForKey:@"pages"]; //2
+    json = [json objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.pageNumber ]]; //2
+    
+    self.animateTagsOnTouch = [[json objectForKey:@"mouthparts"] componentsSeparatedByString:@","];
+    self.animateTagsWithCues = [[json objectForKey:@"mouthcues"] componentsSeparatedByString:@","];
+
+    jsonFile = nil;
+    data = nil;
+    json = nil;
+    
+}
+
+-(void) animateViews{
+    for (int i=0; i<[self.animateTagsOnTouch count];i++){
+        long tag = [[self.animateTagsOnTouch objectAtIndex:i] integerValue];
+        float delay = [[self.animateTagsWithCues objectAtIndex:i] integerValue];
+        
+        [self showAndHide:[self.animateThisImage viewWithTag:tag] withDelay:delay];
+    }
+}
+
+-(void) showAndHide: (UIView*) part withDelay:(float) delayAmount{
+    
+    void (^animView) (void) = ^{
+        part.alpha =1;
+    };
+    
+    void (^completeView) (BOOL) = ^(BOOL success){
+        //part.alpha = 0;
+        NSLog(@"------%@ %f", [part description], delayAmount);
+    };
+    
+    [UIView animateWithDuration:2
+                          delay:0
+                        options:UIViewAnimationOptionAllowUserInteraction
+                     animations:animView
+                     completion:completeView];
+}
+
 -(void) addDetectionPath: (CGRect) path{
     self.detectionPath = path;
-    self.useDetectionPath = true;
+    self.useDetectionPath = YES;
 }
 
 -(void) addTapRecognizer{
     
-    tapAction = [[UITapGestureRecognizer alloc]
+    self.tapAction = [[UITapGestureRecognizer alloc]
                                   initWithTarget:self
                                   action:@selector(jiggle:)];
     
-    tapAction.numberOfTapsRequired = 1;
+    self.tapAction.numberOfTapsRequired = 1;
     
-    [self.animateThisImage addGestureRecognizer:tapAction];
+    [self.animateThisImage addGestureRecognizer:self.tapAction];
 }
 
 -(void) floatingInSpace: (UIView*) floater{
@@ -89,15 +151,56 @@
     
 }
 
+- (void)playSound{
+    [self.soundPlayer stop];
+    [self.soundPlayer play];
+}
+
 - (void)jiggle:(UITapGestureRecognizer *)sender{
     
+    bool move = true;
+    
     CGPoint loc  = [sender locationInView:[self.animateThisImage superview]];
-
-    if (CGRectContainsPoint(self.detectionPath, loc))
+    
+    if(!CGRectContainsPoint(self.detectionPath, loc) && self.useDetectionPath)
     {
-       // NSLog(@"YES %@", NSStringFromCGRect(self.detectionPath));
-        
+        move = false;
+        // NSLog(@"YES %@", NSStringFromCGRect(s  elf.detectionPath));
     }
+    
+//    if(self.animateTagsOnTouch != nil){
+//        [self animateViews];
+//    }
+    
+    if(move){
+        if([self.delegate respondsToSelector:@selector(playDialog)]){
+            [self.delegate playDialog];
+        }
+
+        float disX = 0;
+        float disY = 0;
+        
+        if((rand()% 2)==1){
+            disX = self.viewCenter.x + (rand() % 50);
+        }
+        else{
+            disX = self.viewCenter.x - (rand() % 50);
+        }
+        
+        if((rand()% 2)==1){
+            disY = self.viewCenter.y + (rand() % 50);
+        }
+        else{
+            disX = self.viewCenter.x - (rand() % 50);
+            disY = self.viewCenter.y - (rand() % 50);
+        }
+        
+        float distance = (rand() % 100);
+        
+        [self snapBackAnimation:disX:disY:distance];
+    }
+    
+
 
 }
 
@@ -116,6 +219,13 @@
 -(void) snapBackAnimation:(float)currentX :(float)currentY :(float)distance{
     self->snapping = YES;
     self->animating = YES;
+    [self playSound];
+    
+    if([self.delegate respondsToSelector:@selector(playDialog)]){
+
+        [self.delegate playDialog];
+    }
+    
     [self.animateThisImage.layer removeAllAnimations];
     
     //current uiview pixel coordinates
@@ -315,6 +425,17 @@
     [self floatingInSpace:self.animateThisImage];
     self->animating = NO;
     self.anim1 = nil;
+}
+
+-(void) viewDidUnload{
+    self.animateThisImage = nil;
+    self.tapAction = nil;
+    self.dragObject = nil;
+    self.delegate = nil;
+    self.anim1 = nil;
+    self.soundPlayer = nil;
+    self.soundFileUrl = nil;
+
 }
 
 

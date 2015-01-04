@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import  <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
+
+@protocol dialoger <NSObject>
+-(void) playDialog;
+@end
 
 @interface SpringyView : UIView
 @property (nonatomic) UIView* animateThisImage;
@@ -22,9 +27,16 @@
 @property (nonatomic) CGPoint outOfBoundsAt;
 @property (nonatomic) CGRect detectionPath;
 @property (nonatomic) Boolean useDetectionPath;
+@property (nonatomic) AVAudioPlayer* soundPlayer;
+@property (nonatomic) NSURL* soundFileUrl;
+@property (nonatomic) NSArray* animateTagsOnTouch;
+@property (nonatomic) NSArray* animateTagsWithCues;
+@property (nonatomic) int pageNumber;
+@property (nonatomic, weak) id delegate;
+
 @property (nonatomic) float snapBackAt;
 
-- (id)initWithImageView: (UIImageView*) imageView;
+- (id)initWithImageView:(UIImageView*) imageView andPlaySound: (NSString*) soundfile;
 -(void) addTapRecognizer;
 -(void) floatingInSpace: (UIView*) floater;
 -(void)jiggle:(UITapGestureRecognizer *)sender;
@@ -35,5 +47,7 @@
 - (void) panning: (UIPanGestureRecognizer*) gesture;
 -(void)animationDidStart:(CAAnimation *)theAnimation;
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag;
+//-(void)animateMouthOnTouch;
+//-(void) animateTags: (NSArray*) tag usingDelay: (NSArray*) cues;
 
 @end

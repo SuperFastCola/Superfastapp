@@ -15,6 +15,6 @@
 @property (nonatomic) UIImageView* viewToAnimate;
 @property (nonatomic) NSUInteger animationOptions;
 
--(id)initWithUIImageView:(UIImageView*)image thisAmountofSeconds: (float)seconds delayedFor:(float)delay andToXCoor:(float)xcoor andToYCoor:(float)ycoor andToOpacity: (float) opacity withOptions: (NSUInteger) opts andDelayRepeatfor: (float) repeatDelay;
+-(id)initWithUIImageView:(UIImageView*)image thisAmountofSeconds: (float)seconds delayedFor:(float)delay andToXCoor:(float)xcoor andToYCoor:(float)ycoor andToOpacity: (float) opacity withOptions: (NSUInteger) opts  andHideAfter: (BOOL) hide;
 
 @end
