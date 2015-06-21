@@ -35,7 +35,7 @@
     return self;
 }
 
--(void) loadSelectedPage: (int)withNumber : (BOOL) onRightSide {
+-(void) loadSelectedPage: (int)withNumber {
     //self.pageLabel.text =  [NSString stringWithFormat:@"%@ %i", @"Page Number", pageNumber];
     
     @autoreleasepool {
@@ -53,19 +53,19 @@
     
     //add view controller to self
     
-    if(onRightSide) {
-        //sets initial left point a zero
-        CGFloat left = 0.0;
-        
-        //copies view frame to CG Rect - Not allowed to manipulate frame directly
-        CGRect frame = page.view.frame;
-        
-        //since this is landscape format we will divide the height in half
-        left = [UIScreen mainScreen].bounds.size.height/2;
-        frame.origin.x =  left;
-        page.view.frame = frame;
-    
-    }
+//    if(onRightSide) {
+//        //sets initial left point a zero
+//        CGFloat left = 0.0;
+//        
+//        //copies view frame to CG Rect - Not allowed to manipulate frame directly
+//        CGRect frame = page.view.frame;
+//        
+//        //since this is landscape format we will divide the height in half
+//        left = [UIScreen mainScreen].bounds.size.height/2;
+//        frame.origin.x =  left;
+//        page.view.frame = frame;
+//    
+//    }
 //    This code was used when I thought there was a memeory leak in having full screen UIImageView
 //    NSString *fullpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%i", @"Page", withNumber] ofType:@"jpg"];
 ////    CGImageRef myimage =  [[[UIImage alloc]initWithContentsOfFile:fullpath]CGImage];
@@ -98,7 +98,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadSelectedPage:pageNumber:NO];
+    [self loadSelectedPage:pageNumber];
     
     // Do any additional setup after loading the view from its nib.
 }

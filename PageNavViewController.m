@@ -31,9 +31,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         pageThumbnailsSource = pages;
-    
-
-        
         
         self.thumbWidth = 150;
         self.thumbHeight = 113;
