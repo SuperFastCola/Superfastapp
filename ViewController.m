@@ -29,6 +29,7 @@
 @synthesize soundPlayer;
 @synthesize soundFileURL;
 @synthesize mainPageNumber;
+@synthesize initialPageNumber;
 @synthesize sound_data_object;
 
 
@@ -36,7 +37,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.mainPageNumber = 0;
+        self.mainPageNumber = 1;
+        self.totalPages = 5;
+        
         @autoreleasepool {
             NSURL* jsonFile = [[NSBundle mainBundle] URLForResource:@"sounds_files" withExtension:@"json"];
             NSData* data = [NSData dataWithContentsOfURL:jsonFile];
@@ -68,6 +71,7 @@
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
+    
     self.pageNavigationLoaded = NO;
     
     //need to set width to 1024 and height to 768 on initial load
@@ -83,7 +87,7 @@
     [self addChildViewController:self.pageController];
     [self.view insertSubview:[self.pageController view] belowSubview:self.mainMenu];
     [self.pageController didMoveToParentViewController:self];
-    [self changePage:0];
+    [self changePage: (int)self.mainPageNumber];
 
 
     
@@ -91,8 +95,6 @@
         g.delegate = (id) self; // give me a chance to veto navigation
     }
     
-    //not including 0
-    self.totalPages = 5;
     
     self.comicPages = [[NSMutableArray alloc] init];
     for(int count =0; count<=self.totalPages; count++){
@@ -120,8 +122,12 @@
     self.soundFileURL = [[NSBundle mainBundle] URLForResource:[self.sound_data_object objectForKey:@"soundfile"] withExtension:[self.sound_data_object objectForKey:@"audiotype"]];
         
     //self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view  andAnimateLabels:[self.sound_data_object objectForKey:@"tags"] withTimeCues:[self.sound_data_object objectForKey:@"cues"] error:nil];
-        
-        self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view withDataObject: self.sound_data_object error:nil];
+      
+        if(self.soundFileURL!=nil){
+            
+            
+            self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view withDataObject: self.sound_data_object error:nil];
+        }
         
         self.sound_data_object = nil;
     }

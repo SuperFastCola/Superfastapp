@@ -9,6 +9,12 @@
             "mouthcues": "3.5,3.6,4.0,4.2,4.7,4.9,5.2",
             "defaultmouth": "1399"
 		},
+        "page1":{
+            "soundfile": "lonely_page2",
+            "audiotype": "mp3",
+            "tags": "501,502,503,504,505,506,507",
+            "cues": "0.5,1.2,1.5,1.6,4.0,4.2,4.5"
+        },
         "page11":{
 			"soundfile": "suki_intro_v1",
 			"audiotype": "mp3",

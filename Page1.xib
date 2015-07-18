@@ -102,12 +102,12 @@
                             <rect key="frame" x="8" y="75" width="131" height="77"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="505" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night2.png" id="dDo-2F-eRu">
-                            <rect key="frame" x="9" y="7" width="166" height="78"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" tag="507" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night3.png" id="5yj-F4-rBQ">
                             <rect key="frame" x="9" y="141" width="191" height="107"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" tag="505" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night2.png" id="dDo-2F-eRu">
+                            <rect key="frame" x="9" y="8" width="166" height="78"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>

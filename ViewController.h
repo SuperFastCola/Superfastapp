@@ -29,6 +29,7 @@
 @property (nonatomic, retain) SuperSoundPlayer* soundPlayer;
 @property (nonatomic) NSURL* soundFileURL;
 @property (nonatomic) NSUInteger mainPageNumber;
+@property (nonatomic) NSUInteger initialPageNumber;
 @property (nonatomic) NSDictionary* sound_data_object;
 
 -(void) changePage: (int) toSelected;

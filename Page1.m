@@ -84,22 +84,39 @@
          newFrame.origin = CGPointMake(273, 62);
          
          self.sign.frame = newFrame;
+         [self rotateSign:YES:0.25f:3.5f];
          
-         self.sign.transform = CGAffineTransformMakeRotation( DegreesToRadians(-180));
+         delayInSeconds = 5.0;
+         dispatch_time_t signPutAway = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          
-         [self rotateSign];
+         dispatch_after(signPutAway, dispatch_get_main_queue(), ^(void){
+            [self rotateSign:NO:0.25f:0.0f];
+         });
+         
+
 
      }
     
 }
 
--(void) rotateSign{
+-(void) rotateSign:(Boolean)In :(float)forDuration :(float)andDelay{
 
-    [UIView animateWithDuration:0.25f delay:1.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.sign.transform = CGAffineTransformMakeRotation( DegreesToRadians(0));
-    } completion:^(BOOL finished) {
+    if(In==YES){
+        self.sign.transform = CGAffineTransformMakeRotation( DegreesToRadians(-180));
         
-    }];
+        [UIView animateWithDuration:forDuration delay:andDelay options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.sign.transform = CGAffineTransformMakeRotation( DegreesToRadians(0));
+        } completion:^(BOOL finished) {
+        }];
+    }else{
+        self.sign.transform = CGAffineTransformMakeRotation( DegreesToRadians(0));
+        
+        [UIView animateWithDuration:forDuration delay:andDelay options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.sign.transform = CGAffineTransformMakeRotation( DegreesToRadians(-180));
+        } completion:^(BOOL finished) {
+        }];
+    }
+    
     
 }
 
