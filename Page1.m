@@ -84,20 +84,64 @@
          newFrame.origin = CGPointMake(273, 62);
          
          self.sign.frame = newFrame;
-         [self rotateSign:YES:0.25f:3.5f];
+         [self rotateSign:YES:0.25f:1.5f];
          
          delayInSeconds = 5.0;
          dispatch_time_t signPutAway = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-         
          dispatch_after(signPutAway, dispatch_get_main_queue(), ^(void){
             [self rotateSign:NO:0.25f:0.0f];
          });
          
-
-
+         delayInSeconds = 5.5;
+         dispatch_time_t signReappear = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+         dispatch_after(signReappear, dispatch_get_main_queue(), ^(void){
+             [self fadeInView:102];
+             [self.view viewWithTag:104].alpha = 0;
+             [self.view viewWithTag:105].alpha = 1;
+             [self rotateSign:YES:0.25f:0.0f];
+             [self animateNightBackground];
+         });
      }
-    
 }
+
+
+-(void) animateNightBackground{
+    void (^changeColor) (void) = ^{
+        [self.view viewWithTag:400].backgroundColor = UIColorFromRGB(0x0D68C2);
+    };
+    
+    [UIView animateWithDuration:.1
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:changeColor
+                     completion:nil];
+
+}
+
+-(void) fadeInView:(int)WithTag{
+    void (^fadeIn) (void) = ^{
+        [self.view viewWithTag:WithTag].alpha = 1.0;
+    };
+    
+    [UIView animateWithDuration:.1
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:fadeIn
+                     completion:nil];
+}
+
+-(void) fadeOutView:(int)WithTag{
+    void (^fadeOut) (void) = ^{
+        [self.view viewWithTag:WithTag].alpha = 0.0;
+    };
+    
+    [UIView animateWithDuration:.1
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:fadeOut
+                     completion:nil];
+}
+
 
 -(void) rotateSign:(Boolean)In :(float)forDuration :(float)andDelay{
 

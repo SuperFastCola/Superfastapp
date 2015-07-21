@@ -13,7 +13,6 @@
 #import "BookPageViewController.h"
 #import "SuperSoundPlayer.h"
 
-
 @interface ViewController : UIViewController <UIPageViewControllerDataSource, pageTurner,removePageNavController>
 
 @property (nonatomic, retain) UIPageViewController *pageController;

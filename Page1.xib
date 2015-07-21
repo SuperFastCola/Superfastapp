@@ -48,22 +48,30 @@
                             <rect key="frame" x="0.0" y="0.0" width="287" height="292"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="102" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_planet_night.png" id="Q5B-24-zeF">
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="102" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_planet_night.png" id="Q5B-24-zeF">
                             <rect key="frame" x="0.0" y="0.0" width="287" height="292"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                 </view>
                 <view clipsSubviews="YES" tag="200" contentMode="scaleToFill" id="DIz-LQ-2lq">
-                    <rect key="frame" x="393" y="203" width="192" height="88"/>
+                    <rect key="frame" x="391" y="196" width="189" height="93"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_sniff_day.png" id="U4H-rb-IsN">
-                            <rect key="frame" x="-8" y="-12" width="95" height="90"/>
+                        <imageView userInteractionEnabled="NO" tag="201" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_sniff_day.png" id="U4H-rb-IsN">
+                            <rect key="frame" x="-6" y="-5" width="95" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="201" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_missle_day4.png" id="fEx-kB-wpb">
-                            <rect key="frame" x="52" y="0.0" width="151" height="94"/>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="204" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_sniff_night.png" id="TrL-iy-d9J">
+                            <rect key="frame" x="0.0" y="6" width="96" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" tag="202" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_missle_day4.png" id="fEx-kB-wpb">
+                            <rect key="frame" x="54" y="7" width="151" height="94"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="203" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_missle_night1.png" id="bvf-Kl-ehD">
+                            <rect key="frame" x="54" y="7" width="151" height="94"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                     </subviews>
@@ -72,7 +80,7 @@
                     <rect key="frame" x="400" y="15" width="185" height="168"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view tag="500" contentMode="scaleToFill" id="t88-V2-Jaw">
+                <view contentMode="scaleToFill" id="t88-V2-Jaw">
                     <rect key="frame" x="43" y="260" width="197" height="253"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -121,6 +129,7 @@
     <resources>
         <image name="page_2_tlm_parts_page2_tlm_clouds.png" width="553" height="534"/>
         <image name="page_2_tlm_parts_page2_tlm_missle_day4.png" width="143" height="83"/>
+        <image name="page_2_tlm_parts_page2_tlm_missle_night1.png" width="143" height="83"/>
         <image name="page_2_tlm_parts_page2_tlm_planet_day.png" width="287" height="292"/>
         <image name="page_2_tlm_parts_page2_tlm_planet_night.png" width="287" height="292"/>
         <image name="page_2_tlm_parts_page2_tlm_sign_day.png" width="184" height="116"/>
@@ -134,6 +143,7 @@
         <image name="page_2_tlm_parts_page2_tlm_text_night2.png" width="141" height="82"/>
         <image name="page_2_tlm_parts_page2_tlm_text_night3.png" width="190" height="96"/>
         <image name="page_2_tlm_parts_page2_tlm_text_sniff_day.png" width="127" height="120"/>
+        <image name="page_2_tlm_parts_page2_tlm_text_sniff_night.png" width="127" height="119"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
