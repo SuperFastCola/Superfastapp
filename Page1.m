@@ -15,11 +15,14 @@
 
 @synthesize planet;
 @synthesize sun;
+@synthesize moon;
 @synthesize missle_day;
 @synthesize mask;
 @synthesize maskImage;
 @synthesize clouds;
 @synthesize sign;
+@synthesize animationImages;
+@synthesize rocketFire;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,22 +43,17 @@
      @autoreleasepool {
          
          self.planet = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:100] andPlaySound:nil];
-    
-         double delayInSeconds = .5;
+         self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:300] andPlaySound:nil];
+         self.moon = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:301] andPlaySound:nil];
+         
+         double delayInSeconds = .25;
          dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    
-         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-             //code to be executed on the main queue after delay
-             self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:300] andPlaySound:nil];
-         });
-         
-        delayInSeconds = .25;
-        popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-         
          dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
              //code to be executed on the main queue after delay
              self.missle_day = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200] andPlaySound:nil];
          });
+         
+         [self startRocketFire];
          
          self.mask = [CALayer layer];
          self.maskImage = [UIImage imageNamed:@"page_2_tlm_parts_page2_cloud_mask.png"];
@@ -84,18 +82,24 @@
          newFrame.origin = CGPointMake(273, 62);
          
          self.sign.frame = newFrame;
-         [self rotateSign:YES:0.25f:1.5f];
+         [self rotateSign:YES:0.25f:3.5f];
          
-         delayInSeconds = 5.0;
+         delayInSeconds = 6.0;
          dispatch_time_t signPutAway = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(signPutAway, dispatch_get_main_queue(), ^(void){
             [self rotateSign:NO:0.25f:0.0f];
          });
          
-         delayInSeconds = 5.5;
+         delayInSeconds = 7.0;
          dispatch_time_t signReappear = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(signReappear, dispatch_get_main_queue(), ^(void){
              [self fadeInView:102];
+             [self fadeOutView:401];
+             [self fadeOutView:300];
+             [self fadeOutView:201];
+             [self fadeOutView:202];
+             [self fadeInView:203];
+             [self fadeInView:204];
              [self.view viewWithTag:104].alpha = 0;
              [self.view viewWithTag:105].alpha = 1;
              [self rotateSign:YES:0.25f:0.0f];
@@ -160,9 +164,27 @@
         } completion:^(BOOL finished) {
         }];
     }
-    
-    
 }
+
+-(void)startRocketFire
+{
+    @autoreleasepool {
+        self.animationImages = [NSArray arrayWithObjects:
+                                [UIImage imageNamed:@"page_2_flame1.png"],
+                                [UIImage imageNamed:@"page_2_flame2.png"],
+                                [UIImage imageNamed:@"page_2_flame3.png"],
+                                [UIImage imageNamed:@"page_2_flame4.png"],
+                                nil];
+        
+        self.rocketFire = (UIImageView*)[self.view viewWithTag:205];
+        self.rocketFire.animationImages = self.animationImages;
+        self.rocketFire.animationRepeatCount = 0;
+        self.rocketFire.animationDuration= .1;
+        
+    }
+    [self.rocketFire startAnimating];
+}
+
 
 
 - (void)viewDidUnload{

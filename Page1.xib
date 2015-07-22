@@ -58,6 +58,10 @@
                     <rect key="frame" x="391" y="196" width="189" height="93"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" tag="205" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_flame4.png" id="oas-jZ-IFN">
+                            <rect key="frame" x="55" y="3" width="151" height="94"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
                         <imageView userInteractionEnabled="NO" tag="201" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_sniff_day.png" id="U4H-rb-IsN">
                             <rect key="frame" x="-6" y="-5" width="95" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,7 +70,7 @@
                             <rect key="frame" x="0.0" y="6" width="96" height="87"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="202" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_missle_day4.png" id="fEx-kB-wpb">
+                        <imageView userInteractionEnabled="NO" tag="202" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_missle_day1.png" id="fEx-kB-wpb">
                             <rect key="frame" x="54" y="7" width="151" height="94"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
@@ -78,6 +82,10 @@
                 </view>
                 <imageView userInteractionEnabled="NO" tag="300" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_sun.png" id="08j-vw-leT">
                     <rect key="frame" x="400" y="15" width="185" height="168"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="301" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_moon.png" id="r8p-yJ-BFp">
+                    <rect key="frame" x="437" y="616" width="131" height="141"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" id="t88-V2-Jaw">
@@ -127,9 +135,11 @@
         </view>
     </objects>
     <resources>
+        <image name="page_2_flame4.png" width="143" height="83"/>
         <image name="page_2_tlm_parts_page2_tlm_clouds.png" width="553" height="534"/>
-        <image name="page_2_tlm_parts_page2_tlm_missle_day4.png" width="143" height="83"/>
+        <image name="page_2_tlm_parts_page2_tlm_missle_day1.png" width="143" height="83"/>
         <image name="page_2_tlm_parts_page2_tlm_missle_night1.png" width="143" height="83"/>
+        <image name="page_2_tlm_parts_page2_tlm_moon.png" width="131" height="144"/>
         <image name="page_2_tlm_parts_page2_tlm_planet_day.png" width="287" height="292"/>
         <image name="page_2_tlm_parts_page2_tlm_planet_night.png" width="287" height="292"/>
         <image name="page_2_tlm_parts_page2_tlm_sign_day.png" width="184" height="116"/>

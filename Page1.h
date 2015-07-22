@@ -18,8 +18,11 @@
 @interface Page1 : UIViewController
 @property (nonatomic, retain) SpringyView* planet;
 @property (nonatomic, retain) SpringyView* sun;
+@property (nonatomic, retain) SpringyView* moon;
 @property (nonatomic, retain) SpringyView* missle_day;
 @property (nonatomic, retain) AnimateView* clouds;
+@property (nonatomic, retain) NSArray *animationImages;
+@property (nonatomic,retain) UIImageView* rocketFire;
 
 @property (nonatomic, retain) CALayer *mask;
 @property (nonatomic, retain) UIImage *maskImage;
