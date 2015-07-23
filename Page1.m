@@ -82,31 +82,52 @@
          newFrame.origin = CGPointMake(273, 62);
          
          self.sign.frame = newFrame;
-         [self rotateSign:YES:0.25f:3.5f];
+         [self rotateSign:YES:0.25f:4.0f];
          
-         delayInSeconds = 6.0;
+         delayInSeconds = 3.5;
+         dispatch_time_t sniffOne = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+         dispatch_after(sniffOne, dispatch_get_main_queue(), ^(void){
+             [self fadeInView:201:0];
+         });
+         
+         delayInSeconds = 4.25;
+         dispatch_time_t sniffOneOut = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+         dispatch_after(sniffOneOut, dispatch_get_main_queue(), ^(void){
+             [self fadeOutView:201];
+         });
+         
+         delayInSeconds = 8.25;
          dispatch_time_t signPutAway = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(signPutAway, dispatch_get_main_queue(), ^(void){
             [self rotateSign:NO:0.25f:0.0f];
          });
          
-         delayInSeconds = 7.0;
+         delayInSeconds = 9.0;
          dispatch_time_t signReappear = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(signReappear, dispatch_get_main_queue(), ^(void){
-             [self fadeInView:102];
+             [self rotateSign:YES:0.25f:0.0f];
+         });
+         
+         delayInSeconds = 9.25;
+         dispatch_time_t hideElements = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+         dispatch_after(hideElements, dispatch_get_main_queue(), ^(void){
+             [self fadeInView:102:0];
              [self fadeOutView:401];
              [self fadeOutView:300];
-             [self fadeOutView:201];
              [self fadeOutView:202];
-             [self fadeInView:203];
-             [self fadeInView:204];
+             [self fadeInView:203:0];
              [self.view viewWithTag:104].alpha = 0;
              [self.view viewWithTag:105].alpha = 1;
-             [self rotateSign:YES:0.25f:0.0f];
              [self animateNightBackground];
          });
+         
+         
+
      }
 }
+
+//[self fadeOutView:201];
+//[self fadeInView:204];
 
 
 -(void) animateNightBackground{
@@ -122,12 +143,13 @@
 
 }
 
--(void) fadeInView:(int)WithTag{
+-(void) fadeInView:(int)WithTag : (float)UsingDuration{
     void (^fadeIn) (void) = ^{
         [self.view viewWithTag:WithTag].alpha = 1.0;
     };
+
     
-    [UIView animateWithDuration:.1
+    [UIView animateWithDuration: ((UsingDuration==0)?0.1:UsingDuration)
                           delay:0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:fadeIn

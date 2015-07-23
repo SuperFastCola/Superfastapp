@@ -62,7 +62,7 @@
                             <rect key="frame" x="55" y="3" width="151" height="94"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="201" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_sniff_day.png" id="U4H-rb-IsN">
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="201" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_sniff_day.png" id="U4H-rb-IsN">
                             <rect key="frame" x="-6" y="-5" width="95" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
