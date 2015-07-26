@@ -42,15 +42,21 @@
     
      @autoreleasepool {
          
-         self.planet = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:100] andPlaySound:nil];
-         self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:300] andPlaySound:nil];
-         self.moon = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:301] andPlaySound:nil];
+         self.planet = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:100] andPlaySound:@"whoot3"];
          
          double delayInSeconds = .25;
          dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
              //code to be executed on the main queue after delay
-             self.missle_day = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200] andPlaySound:nil];
+             self.missle_day = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200] andPlaySound:@"sniff"];
+         });
+         
+         delayInSeconds = .4;
+         popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+             self.sun = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:300] andPlaySound:@"whoot2"];
+             
+             self.moon = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:301] andPlaySound:@"whoot1"];
          });
          
          [self startRocketFire];
@@ -80,35 +86,25 @@
          
          CGRect newFrame = self.sign.frame;
          newFrame.origin = CGPointMake(273, 62);
-         
+
          self.sign.frame = newFrame;
          [self rotateSign:YES:0.25f:4.0f];
          
-         delayInSeconds = 3.5;
-         dispatch_time_t sniffOne = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-         dispatch_after(sniffOne, dispatch_get_main_queue(), ^(void){
-             [self fadeInView:201:0];
-         });
          
-         delayInSeconds = 4.25;
+         delayInSeconds = 7.0;
          dispatch_time_t sniffOneOut = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(sniffOneOut, dispatch_get_main_queue(), ^(void){
              [self fadeOutView:201];
          });
          
-         delayInSeconds = 8.25;
+         delayInSeconds = 7.25;
          dispatch_time_t signPutAway = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(signPutAway, dispatch_get_main_queue(), ^(void){
             [self rotateSign:NO:0.25f:0.0f];
          });
+        
          
-         delayInSeconds = 9.0;
-         dispatch_time_t signReappear = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-         dispatch_after(signReappear, dispatch_get_main_queue(), ^(void){
-             [self rotateSign:YES:0.25f:0.0f];
-         });
-         
-         delayInSeconds = 9.25;
+         delayInSeconds = 8.0;
          dispatch_time_t hideElements = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
          dispatch_after(hideElements, dispatch_get_main_queue(), ^(void){
              [self fadeInView:102:0];
@@ -116,18 +112,22 @@
              [self fadeOutView:300];
              [self fadeOutView:202];
              [self fadeInView:203:0];
+             [self fadeInView:301:0];
              [self.view viewWithTag:104].alpha = 0;
              [self.view viewWithTag:105].alpha = 1;
              [self animateNightBackground];
          });
          
          
+         delayInSeconds = 9.0;
+         dispatch_time_t signReappear = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+         dispatch_after(signReappear, dispatch_get_main_queue(), ^(void){
+             [self rotateSign:YES:0.25f:0.0f];
+         });
+         
 
      }
 }
-
-//[self fadeOutView:201];
-//[self fadeInView:204];
 
 
 -(void) animateNightBackground{
@@ -211,6 +211,17 @@
 
 - (void)viewDidUnload{
     [super viewDidUnload];
+    
+    self.planet = nil;
+    self.sun = nil;
+    self.moon = nil;
+    self.missle_day = nil;
+    self.mask = nil;
+    self.maskImage = nil;
+    self.clouds = nil;
+    self.sign = nil;
+    self.animationImages = nil;
+    self.rocketFire = nil;
 
 }
 

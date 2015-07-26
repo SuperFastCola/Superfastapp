@@ -84,7 +84,7 @@
                     <rect key="frame" x="400" y="15" width="185" height="168"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="301" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_moon.png" id="r8p-yJ-BFp">
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="301" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_moon.png" id="r8p-yJ-BFp">
                     <rect key="frame" x="437" y="616" width="131" height="141"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
