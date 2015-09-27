@@ -28,5 +28,4 @@
 @property (nonatomic, retain) UIImage *maskImage;
 @property (nonatomic, retain) UIView* sign;
 
-
 @end

@@ -26,6 +26,28 @@
                     </subviews>
                     <color key="backgroundColor" red="0.36470588235294116" green="0.86274509803921573" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <imageView userInteractionEnabled="NO" alpha="0.0" tag="402" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_background_night_v3.png" id="z4y-U8-cXy">
+                    <rect key="frame" x="270" y="99" width="465" height="585"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" id="UfW-l2-IKw">
+                    <rect key="frame" x="788" y="254" width="200" height="248"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" tag="506" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night1.png" id="lLw-ql-YZq">
+                            <rect key="frame" x="8" y="75" width="131" height="77"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" tag="507" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night3.png" id="5yj-F4-rBQ">
+                            <rect key="frame" x="9" y="141" width="191" height="107"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" tag="505" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night2.png" id="dDo-2F-eRu">
+                            <rect key="frame" x="9" y="8" width="166" height="78"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                </view>
                 <view opaque="NO" tag="100" contentMode="scaleToFill" id="p3T-Gu-WLd">
                     <rect key="frame" x="344" y="277" width="460" height="292"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -110,24 +132,6 @@
                         </imageView>
                     </subviews>
                 </view>
-                <view contentMode="scaleToFill" id="UfW-l2-IKw">
-                    <rect key="frame" x="788" y="254" width="200" height="248"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" tag="506" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night1.png" id="lLw-ql-YZq">
-                            <rect key="frame" x="8" y="75" width="131" height="77"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" tag="507" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night3.png" id="5yj-F4-rBQ">
-                            <rect key="frame" x="9" y="141" width="191" height="107"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" tag="505" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_2_tlm_parts_page2_tlm_text_night2.png" id="dDo-2F-eRu">
-                            <rect key="frame" x="9" y="8" width="166" height="78"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -136,6 +140,7 @@
     </objects>
     <resources>
         <image name="page_2_flame4.png" width="143" height="83"/>
+        <image name="page_2_tlm_parts_page2_tlm_background_night_v3.png" width="459" height="628"/>
         <image name="page_2_tlm_parts_page2_tlm_clouds.png" width="553" height="534"/>
         <image name="page_2_tlm_parts_page2_tlm_missle_day1.png" width="143" height="83"/>
         <image name="page_2_tlm_parts_page2_tlm_missle_night1.png" width="143" height="83"/>

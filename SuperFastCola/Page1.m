@@ -109,6 +109,7 @@
          dispatch_after(hideElements, dispatch_get_main_queue(), ^(void){
              [self fadeInView:102:0];
              [self fadeOutView:401];
+             [self fadeInView:402:0];
              [self fadeOutView:300];
              [self fadeOutView:202];
              [self fadeInView:203:0];

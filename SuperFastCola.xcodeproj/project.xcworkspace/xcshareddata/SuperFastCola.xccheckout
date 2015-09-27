@@ -6,15 +6,19 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>758F2E25-718D-40D7-A5F5-89CABB1A193B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SuperFastCola</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>93862579547FFD1324CB160092BBDC0C84170686</key>
 		<string>https://github.com/SuperFastCola/Superfastapp.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SuperFastCola.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>93862579547FFD1324CB160092BBDC0C84170686</key>
-		<string>SuperFastCola/</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/SuperFastCola/Superfastapp.git</string>

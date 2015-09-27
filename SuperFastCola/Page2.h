@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SceneKit/SceneKit.h>
 
 @interface Page2 : UIViewController
 
