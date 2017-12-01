@@ -21,6 +21,7 @@
     // Override point for customization after application launch.
     ViewController* superFastBook = [[ViewController alloc] init];
     self.window.rootViewController = superFastBook;
+
     self.appInBackground = NO;
     return YES;
 }

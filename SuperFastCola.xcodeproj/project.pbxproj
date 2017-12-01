@@ -76,7 +76,7 @@
 		924C334218482FFE0072BD46 /* Page3.m in Sources */ = {isa = PBXBuildFile; fileRef = 924C334018482FFE0072BD46 /* Page3.m */; };
 		924C334318482FFE0072BD46 /* Page3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924C334118482FFE0072BD46 /* Page3.xib */; };
 		924C3347184830390072BD46 /* Page0.m in Sources */ = {isa = PBXBuildFile; fileRef = 924C3345184830390072BD46 /* Page0.m */; };
-		924C3348184830390072BD46 /* Page0_test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924C3346184830390072BD46 /* Page0_test.xib */; };
+		924C3348184830390072BD46 /* Page0-old.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924C3346184830390072BD46 /* Page0-old.xib */; };
 		924E97BD185E5733004D9DD9 /* page_nav_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 924E97BB185E5733004D9DD9 /* page_nav_close.png */; };
 		924E97BE185E5733004D9DD9 /* page_nav_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 924E97BC185E5733004D9DD9 /* page_nav_menu.png */; };
 		9250A8DA184A284900932BBE /* Page0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9250A8D8184A284900932BBE /* Page0.jpg */; };
@@ -235,7 +235,7 @@
 		924C334118482FFE0072BD46 /* Page3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page3.xib; sourceTree = "<group>"; };
 		924C3344184830390072BD46 /* Page0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page0.h; sourceTree = "<group>"; };
 		924C3345184830390072BD46 /* Page0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page0.m; sourceTree = "<group>"; };
-		924C3346184830390072BD46 /* Page0_test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page0_test.xib; sourceTree = "<group>"; };
+		924C3346184830390072BD46 /* Page0-old.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page0-old.xib"; sourceTree = "<group>"; };
 		924E97BB185E5733004D9DD9 /* page_nav_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_nav_close.png; sourceTree = "<group>"; };
 		924E97BC185E5733004D9DD9 /* page_nav_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_nav_menu.png; sourceTree = "<group>"; };
 		9250A8D8184A284900932BBE /* Page0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Page0.jpg; sourceTree = "<group>"; };
@@ -520,13 +520,13 @@
 				924C3344184830390072BD46 /* Page0.h */,
 				924C3345184830390072BD46 /* Page0.m */,
 				925FF1DA197ADD8E006A1FAF /* Page0.xib */,
-				924C3346184830390072BD46 /* Page0_test.xib */,
+				924C3346184830390072BD46 /* Page0-old.xib */,
 				924C333518482F6B0072BD46 /* Page1.h */,
 				924C333618482F6B0072BD46 /* Page1.m */,
 				924C333718482F6B0072BD46 /* Page1.xib */,
+				92AFB32E1BAFA76E0056594F /* page2Game.swift */,
 				924C333A18482FBD0072BD46 /* Page2.h */,
 				924C333B18482FBD0072BD46 /* Page2.m */,
-				92AFB32E1BAFA76E0056594F /* page2Game.swift */,
 				924C333C18482FBD0072BD46 /* Page2.xib */,
 				924C333F18482FFE0072BD46 /* Page3.h */,
 				924C334018482FFE0072BD46 /* Page3.m */,
@@ -594,7 +594,11 @@
 		92BC91B21847A7E3003BD817 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				KnownAssetTags = (
+					100,
+				);
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = com.anthony.baker;
 				TargetAttributes = {
 					92BC91B91847A7E3003BD817 = {
@@ -750,7 +754,7 @@
 				92CBB144184C27B5003CE7BF /* page_0-thumb.jpg in Resources */,
 				925FF224197ADF68006A1FAF /* page_1_tlm_tear2.png in Resources */,
 				921537511B372D4100849613 /* page_2_tlm_parts_page2_cloud_mask.png in Resources */,
-				924C3348184830390072BD46 /* Page0_test.xib in Resources */,
+				924C3348184830390072BD46 /* Page0-old.xib in Resources */,
 				921174F71855174800BEFB8B /* page_4-01.jpg in Resources */,
 				9215373E1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_night2.png in Resources */,
 			);
@@ -823,6 +827,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -893,11 +898,12 @@
 				INFOPLIST_FILE = "SuperFastCola/SuperFastCola-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anthony.baker.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperFastCola/SuperFastCola-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -915,10 +921,11 @@
 				INFOPLIST_FILE = "SuperFastCola/SuperFastCola-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anthony.baker.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperFastCola/SuperFastCola-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

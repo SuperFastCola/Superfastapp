@@ -73,10 +73,23 @@
 //    UIImageView* pageImage = (UIImageView*) [self.page.view viewWithTag:200];
 //  //  pageImage.image = [UIImage imageWithCGImage:loadImage];
 //    pageImage.image = loadImage;
-    
+        
+        float width = [[UIScreen mainScreen] bounds].size.width;
+        float height = [[UIScreen mainScreen] bounds].size.height;
+        self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,width,height)];
+        
+        float scale = height / 768;
+        float new_width = self.view.bounds.size.width * scale;
+        float new_x = (width-new_width)/2;
+        
+//        self.view.bounds = CGRectMake(0, 0, width, height);
+//        self.view.clipsToBounds = YES;
+        self.view.transform = CGAffineTransformMakeScale(scale, scale);
         [self addChildViewController:self.page];
         [self.view addSubview:self.page.view];
         [self.page didMoveToParentViewController:self];
+        
+        
         myNibName = nil;
     }
 

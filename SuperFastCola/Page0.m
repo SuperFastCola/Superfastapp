@@ -79,11 +79,11 @@
                      animations:animCloud
                      completion:nil];
 }
-    
+
 -(void)startRocketFire
 {
     @autoreleasepool {
-    self.animationImages = [NSArray arrayWithObjects:
+        self.animationImages = [NSArray arrayWithObjects:
                                 [UIImage imageNamed:@"page_1_tlm_flames0.png"],
                                 [UIImage imageNamed:@"page_1_tlm_flames1.png"],
                                 [UIImage imageNamed:@"page_1_tlm_flames2.png"],
@@ -94,13 +94,13 @@
                                 [UIImage imageNamed:@"page_1_tlm_flames7.png"],
                                 [UIImage imageNamed:@"page_1_tlm_flames8.png"],
                                 [UIImage imageNamed:@"page_1_tlm_flames9.png"],
-//                                [UIImage imageNamed:@"page_1_tlm_flames5.png"],
-//                                [UIImage imageNamed:@"page_1_tlm_flames4.png"],
-//                                [UIImage imageNamed:@"page_1_tlm_flames3.png"],
-//                                [UIImage imageNamed:@"page_1_tlm_flames2.png"],
-//                                [UIImage imageNamed:@"page_1_tlm_flames1.png"],
-//                                [UIImage imageNamed:@"page_1_tlm_flames0.png"],
-
+                                //                                [UIImage imageNamed:@"page_1_tlm_flames5.png"],
+                                //                                [UIImage imageNamed:@"page_1_tlm_flames4.png"],
+                                //                                [UIImage imageNamed:@"page_1_tlm_flames3.png"],
+                                //                                [UIImage imageNamed:@"page_1_tlm_flames2.png"],
+                                //                                [UIImage imageNamed:@"page_1_tlm_flames1.png"],
+                                //                                [UIImage imageNamed:@"page_1_tlm_flames0.png"],
+                                
                                 nil];
         
         self.rocketFire = (UIImageView*)[self.view viewWithTag:500];
@@ -126,7 +126,7 @@
         ((UIImageView*) self.bird1.animateThisImage).animationImages =  self.bird1BlinkImages;
         ((UIImageView*) self.bird1.animateThisImage).animationRepeatCount = 1;
         ((UIImageView*) self.bird1.animateThisImage).animationDuration = blinkDuration;
-
+        
         self.bird2BlinkImages = [NSArray arrayWithObjects:
                                  [UIImage imageNamed:@"page_1_tlm_bird2_1.png"],
                                  [UIImage imageNamed:@"page_1_tlm_bird2_2.png"],
@@ -138,15 +138,15 @@
         
         
         self.missleBlinkImages = [NSArray arrayWithObjects:
-                                 [UIImage imageNamed:@"page_1_tlm_eyes_v1.png"],
-                                 [UIImage imageNamed:@"page_1_tlm_eyes_v2.png"],
-                                 nil
-                                 ];
+                                  [UIImage imageNamed:@"page_1_tlm_eyes_v1.png"],
+                                  [UIImage imageNamed:@"page_1_tlm_eyes_v2.png"],
+                                  nil
+                                  ];
         self.missleEyes = (UIImageView*) [self.view viewWithTag:202];
         self.missleEyes.animationImages = self.missleBlinkImages;
         self.missleEyes.animationRepeatCount = 1;
         self.missleEyes.animationDuration = blinkDuration;
-    
+        
         self.birdBlinker = [NSTimer scheduledTimerWithTimeInterval:5  target:self selector:@selector(playBlinkers) userInfo:nil repeats:YES];
     }
 }
@@ -162,11 +162,11 @@
     
     int blinkRandom = 4;
     float randomBlink =  rand() % blinkRandom;
-
+    
     dispatch_time_t blinkTime = dispatch_time(DISPATCH_TIME_NOW, randomBlink * NSEC_PER_SEC);
     dispatch_after(blinkTime, dispatch_get_main_queue(), ^(void){
-       //code to be executed on the main queue after delay
-       [((UIImageView*) self.bird2.animateThisImage) startAnimating];
+        //code to be executed on the main queue after delay
+        [((UIImageView*) self.bird2.animateThisImage) startAnimating];
     });
     
     randomBlink =  rand() % blinkRandom;
@@ -176,7 +176,7 @@
         //code to be executed on the main queue after delay
         [self.missleEyes startAnimating];
     });
-
+    
 }
 
 -(void) drawMissleMouthParts{
@@ -223,95 +223,95 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     @autoreleasepool {
-         
-    self.missleHitArea  = CGRectMake(290, 340, 500, 110);
-         
-    // Do any additional setup after loading the view from its nib.
-    self.missle = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:101] andPlaySound:@"lonely_page1_isolated"];
-    self.missle.delegate = self;
-         
-    [self.missle addDetectionPath:self.missleHitArea];
-    self.missle.pageNumber = 0;
-    //[self.missle animateMouthOnTouch];
-
-    double delayInSeconds = .25;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //code to be executed on the main queue after delay
-        self.bird1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200] andPlaySound:@"bird_tweet"];
-    });
-    
-    delayInSeconds = .45;
-    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //code to be executed on the main queue after delay
-        self.bird2 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:201] andPlaySound:@"bird_tweet"];
-        [self startBlinking];
-    });
-    
-   // [self animateClouds:(UIImageView*)[self.view viewWithTag:600] inThisAmountOfTime:10];
-    
-    self.cloud1 = [[AnimateView alloc]
-                    initWithUIImageView:(UIImageView*)[self.view viewWithTag:600]
-                    thisAmountofSeconds:20
-                    delayedFor:12
-                    andToXCoor:[UIScreen mainScreen].bounds.size.width + 200
-                    andToYCoor:0
-                    andToOpacity:1.0
-                    withOptions:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear)
-                    andHideAfter: NO
-                   ];
-    
-    self.cloud2 = [[AnimateView alloc]
-                   initWithUIImageView:(UIImageView*)[self.view viewWithTag:601]
-                   thisAmountofSeconds:25
-                   delayedFor:0
-                   andToXCoor:[UIScreen mainScreen].bounds.size.width + 300
-                   andToYCoor:0
-                   andToOpacity:1.0
-                   withOptions:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear)
-                    andHideAfter: NO
-                   ];
-    
-    
-    self.mask = [CALayer layer];
-    self.maskImage = [UIImage imageNamed:@"page_1_tlm_cloud_mask.png"];
-    self.mask.contents = (id)[self.maskImage CGImage];
-    self.mask.frame = CGRectMake(0, 0,self.maskImage.size.width, self.maskImage.size.height);
-     
-    [self.view viewWithTag:800].layer.mask = self.mask;
-    [self.view viewWithTag:800].layer.masksToBounds = YES;
-    
-    
-    
-    self.tear1 = [[AnimateView alloc]
-                   initWithUIImageView:(UIImageView*)[self.view viewWithTag:901]
-                   thisAmountofSeconds:1
-                   delayedFor:.25
-                   andToXCoor:0
-                   andToYCoor:550
-                   andToOpacity:0.1
-                   withOptions:UIViewAnimationOptionRepeat
-                   andHideAfter: NO
-                  ];
-    
-    self.tear2 = [[AnimateView alloc]
-                  initWithUIImageView:(UIImageView*)[self.view viewWithTag:902]
-                  thisAmountofSeconds:1.5
-                  delayedFor:.30
-                  andToXCoor:0
-                  andToYCoor:550
-                  andToOpacity:0.1
-                  withOptions:UIViewAnimationOptionRepeat
-                  andHideAfter: NO
-                  ];
-
-    
-     }
-    [self drawMissleMouthParts];
-    [self startRocketFire];
+    @autoreleasepool {
+        
+        self.missleHitArea  = CGRectMake(290, 340, 500, 110);
+        
+        // Do any additional setup after loading the view from its nib.
+        self.missle = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:101] andPlaySound:@"lonely_page1_isolated"];
+        self.missle.delegate = self;
+        
+        [self.missle addDetectionPath:self.missleHitArea];
+        self.missle.pageNumber = 0;
+        //[self.missle animateMouthOnTouch];
+        
+        double delayInSeconds = .25;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //code to be executed on the main queue after delay
+            self.bird1 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:200] andPlaySound:@"bird_tweet"];
+        });
+        
+        delayInSeconds = .45;
+        popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //code to be executed on the main queue after delay
+            self.bird2 = [[SpringyView alloc] initWithImageView: (UIImageView*)[self.view viewWithTag:201] andPlaySound:@"bird_tweet"];
+            [self startBlinking];
+        });
+        
+        // [self animateClouds:(UIImageView*)[self.view viewWithTag:600] inThisAmountOfTime:10];
+        
+        self.cloud1 = [[AnimateView alloc]
+                       initWithUIImageView:(UIImageView*)[self.view viewWithTag:600]
+                       thisAmountofSeconds:20
+                       delayedFor:12
+                       andToXCoor:[UIScreen mainScreen].bounds.size.width + 200
+                       andToYCoor:0
+                       andToOpacity:1.0
+                       withOptions:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear)
+                       andHideAfter: NO
+                       ];
+        
+        self.cloud2 = [[AnimateView alloc]
+                       initWithUIImageView:(UIImageView*)[self.view viewWithTag:601]
+                       thisAmountofSeconds:25
+                       delayedFor:0
+                       andToXCoor:[UIScreen mainScreen].bounds.size.width + 300
+                       andToYCoor:0
+                       andToOpacity:1.0
+                       withOptions:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear)
+                       andHideAfter: NO
+                       ];
+        
+        
+        self.mask = [CALayer layer];
+        self.maskImage = [UIImage imageNamed:@"page_1_tlm_cloud_mask.png"];
+        self.mask.contents = (id)[self.maskImage CGImage];
+        self.mask.frame = CGRectMake(0, 0,self.maskImage.size.width, self.maskImage.size.height);
+        
+        [self.view viewWithTag:800].layer.mask = self.mask;
+        [self.view viewWithTag:800].layer.masksToBounds = YES;
+        
+        
+        
+        self.tear1 = [[AnimateView alloc]
+                      initWithUIImageView:(UIImageView*)[self.view viewWithTag:901]
+                      thisAmountofSeconds:1
+                      delayedFor:.25
+                      andToXCoor:0
+                      andToYCoor:550
+                      andToOpacity:0.1
+                      withOptions:UIViewAnimationOptionRepeat
+                      andHideAfter: NO
+                      ];
+        
+        self.tear2 = [[AnimateView alloc]
+                      initWithUIImageView:(UIImageView*)[self.view viewWithTag:902]
+                      thisAmountofSeconds:1.5
+                      delayedFor:.30
+                      andToXCoor:0
+                      andToYCoor:550
+                      andToOpacity:0.1
+                      withOptions:UIViewAnimationOptionRepeat
+                      andHideAfter: NO
+                      ];
+        
+        
+    }
+    //    [self drawMissleMouthParts];
+    //    [self startRocketFire];
 }
 
 -(IBAction)tester:(id)sender{
@@ -428,7 +428,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:NO];
-   [self nullifyObjects];
+    [self nullifyObjects];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{

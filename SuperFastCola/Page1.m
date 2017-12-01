@@ -82,7 +82,7 @@
                         andHideAfter: NO
                         ];
          
-         self.sign.layer.AnchorPoint = CGPointMake(0,0.5);
+         self.sign.layer.anchorPoint = CGPointMake(0,0.5);
          
          CGRect newFrame = self.sign.frame;
          newFrame.origin = CGPointMake(273, 62);

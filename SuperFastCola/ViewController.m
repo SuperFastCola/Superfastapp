@@ -37,7 +37,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.mainPageNumber = 1;
+        self.mainPageNumber = 0;
         self.totalPages = 5;
         
         @autoreleasepool {
@@ -70,7 +70,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+
     
+    self.pageController.view.bounds = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    
+
     
     self.pageNavigationLoaded = NO;
     
@@ -78,7 +82,7 @@
     //initial load is in portrait format
     self.view.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     
-    self.mainMenu = [[UIButton alloc] initWithFrame:CGRectMake(10, ([UIScreen mainScreen].bounds.size.width - 80), 152, 65)];
+    self.mainMenu = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 152, 65)];
     [self.mainMenu setBackgroundImage:[UIImage imageNamed:@"page_nav_menu.png"] forState:UIControlStateNormal];
     [self.view addSubview:self.mainMenu];
     [self.mainMenu addTarget:self action:@selector(showPageNavigation:) forControlEvents:UIControlEventTouchDown];
@@ -88,6 +92,13 @@
     [self.view insertSubview:[self.pageController view] belowSubview:self.mainMenu];
     [self.pageController didMoveToParentViewController:self];
     [self changePage: (int)self.mainPageNumber];
+    
+    
+//    float width = [[UIScreen mainScreen] bounds].size.width;
+//    float height = [[UIScreen mainScreen] bounds].size.height;
+        self.view.backgroundColor = [UIColor whiteColor];
+//    self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,width,height)];
+
 
 
     
@@ -102,7 +113,7 @@
     }
     
     
-    //NSLog(@"%f %f", self.mainMenu.frame.origin.x, self.mainMenu.frame.origin.y);
+//    NSLog(@"%f %f", self.mainMenu.frame.origin.x, self.mainMenu.frame.origin.y);
     
     //initialize the audio session
     NSError *setCategoryError = nil;
@@ -152,6 +163,7 @@
     [(PageNavViewController*) self.pageNavigation animatePageNavViewOutOfFrame];
     
     
+    
 //    [remove willMoveToParentViewController:nil];
 //    [remove.view removeFromSuperview];
 //    [remove removeFromParentViewController];
@@ -188,6 +200,7 @@
 
     self.mainPageNumber = [(BookPageViewController *)viewController pageNumber];
         
+        
 //    [viewController willMoveToParentViewController:nil];
 //    [viewController.view removeFromSuperview];
 //    [viewController removeFromParentViewController];
@@ -216,6 +229,17 @@
         self.childViewController = [[BookPageViewController alloc] init];
         self.childViewController.pageNumber = (int)index;
         self.childViewController.delegate = self;
+    
+        float width = [[UIScreen mainScreen] bounds].size.width;
+        float height = [[UIScreen mainScreen] bounds].size.height;
+    
+        float scale = height / 768;
+        float new_width = self.childViewController.view.bounds.size.width * scale;
+        float new_x = ((width-new_width)/2) * -1;
+
+    
+        self.childViewController.view.bounds = CGRectMake(new_x, 0, self.childViewController.view.frame.size.width, self.childViewController.view.frame.size.height);
+    
     
         [self checkForSoundAndPlay];
 
@@ -259,6 +283,9 @@
 
 -(void) showPageNavigation: (UIButton*) sender{
     
+    NSLog(@"%i", [(PageNavViewController*) self.pageNavigation backedUpVar]);
+
+    
     @autoreleasepool {
         
     if(!self.pageNavigationLoaded){
@@ -269,7 +296,6 @@
         
     }
         
-        NSLog(@"%i", [(PageNavViewController*) self.pageNavigation backedUpVar]);
         
     }
 

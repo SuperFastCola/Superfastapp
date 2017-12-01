@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="I">
@@ -15,9 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_background.jpg" id="dNt-uv-AmV">
+                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_background.jpg" id="dNt-uv-AmV">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm-01.jpg" id="KxQ-BJ-LCR">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -43,7 +43,7 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" alpha="0.0" tag="400" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech.png" id="IVE-nu-5Uv">
                             <rect key="frame" x="0.0" y="0.0" width="299" height="187"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" alpha="0.0" tag="406" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_speech_text6.png" id="Gfw-ss-PKM">
                             <rect key="frame" x="189" y="44" width="71" height="55"/>
@@ -81,7 +81,7 @@
                         </imageView>
                         <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="900" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_missle.png" id="yPH-3T-ofj">
                             <rect key="frame" x="63" y="71" width="555" height="400"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_eyes1.png" id="Xet-bF-r0s">
                             <rect key="frame" x="137" y="285" width="82" height="59"/>
@@ -111,12 +111,16 @@
                             <rect key="frame" x="168" y="324" width="21" height="51"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="903" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear3.png" id="6K4-Uv-kLn">
-                            <rect key="frame" x="180" y="329" width="25" height="54"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" alpha="0.0" tag="904" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear4.png" id="K1Q-rn-gzj">
                             <rect key="frame" x="153" y="329" width="26" height="57"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2_1.png" id="aPx-dV-wrc">
+                            <rect key="frame" x="524" y="-57" width="118" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" tag="903" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear3.png" id="6K4-Uv-kLn">
+                            <rect key="frame" x="180" y="329" width="25" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -127,10 +131,6 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird1_1.png" id="0mO-o9-Ydl">
                     <rect key="frame" x="133" y="85" width="127" height="122"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2_1.png" id="aPx-dV-wrc">
-                    <rect key="frame" x="733" y="20" width="118" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" tag="394" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_intro_text1.png" id="WPS-X6-5MU">
@@ -196,9 +196,4 @@
         <image name="page_1_tlm_tear3.png" width="25" height="54"/>
         <image name="page_1_tlm_tear4.png" width="26" height="57"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
 </document>

@@ -31,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         pageThumbnailsSource = pages;
+    
         
         self.thumbWidth = 150;
         self.thumbHeight = 113;
@@ -46,16 +47,20 @@
 
 -(void) resizeMainHolder{
     
-    CGPoint position = CGPointMake(0, 768);
-    CGRect newFrame = self.view.frame;
-    newFrame.origin = position;
-    self.view.frame = newFrame;
+//    CGPoint position = CGPointMake(0, 768);
+//    CGRect newFrame = self.view.frame;
+//    newFrame.origin = position;
+//    self.view.frame = newFrame;
+    
+    self.view.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width ,  self.view.frame.size.height);
 }
 
 -(void) animatePageNavView{
 
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionNone animations:^{
-        self.view.center = CGPointMake(self.view.center.x, self.view.center.y - 160);
+        self.view.center = CGPointMake(self.view.center.x, height - 160);
     } completion:^(BOOL finished){
    
     }];
@@ -81,9 +86,11 @@
         
     };
     
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionNone animations:^{
         //self.view.alpha = 1.0;
-        self.view.center = CGPointMake(self.view.center.x, self.view.center.y + 160);
+        self.view.center = CGPointMake(self.view.center.x, height + 160);
     } completion:deletePageNav];
 
 }
@@ -101,6 +108,8 @@
     self.delegate = [self parentViewController];
     
     self.backedUpVar = 12;
+    
+  
     
     int start = 75;
     int page = 0;
