@@ -51,8 +51,10 @@
        
         [self addTapRecognizer];
         
-        self.userInteractionEnabled = true;
-        self.animateThisImage.userInteractionEnabled = true;
+        self.userInteractionEnabled = YES;
+        self.animateThisImage.userInteractionEnabled = YES;
+        [self setUserInteractionEnabled:YES];
+        [self.animateThisImage setUserInteractionEnabled:YES];
         
         //snap animation distance
         self.snapBackAt = 60;
@@ -162,10 +164,11 @@
     
     CGPoint loc  = [sender locationInView:[self.animateThisImage superview]];
     
+    NSLog(@"%f", loc.x);
+    
     if(!CGRectContainsPoint(self.detectionPath, loc) && self.useDetectionPath)
     {
         move = false;
-        // NSLog(@"YES %@", NSStringFromCGRect(s  elf.detectionPath));
     }
     
 //    if(self.animateTagsOnTouch != nil){
@@ -338,6 +341,8 @@
     
     loc = [gesture translationInView:[self.animateThisImage superview]];
     touchedAt = [gesture locationInView:[self.animateThisImage superview]];
+    
+    NSLog(@"%f",touchedAt.x);
     
     gesture.delaysTouchesEnded = NO;  
     

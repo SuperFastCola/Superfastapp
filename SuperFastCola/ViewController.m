@@ -74,8 +74,6 @@
     
     self.pageController.view.bounds = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     
-
-    
     self.pageNavigationLoaded = NO;
     
     //need to set width to 1024 and height to 768 on initial load
@@ -98,8 +96,6 @@
 //    float height = [[UIScreen mainScreen] bounds].size.height;
         self.view.backgroundColor = [UIColor whiteColor];
 //    self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,width,height)];
-
-
 
     
     for (UIGestureRecognizer* g in self.pageController.gestureRecognizers){
@@ -146,12 +142,7 @@
 
 -(void) changePage: (int) toSelected{
     
-   // UIViewController* remove = childViewController;
-    
     self.mainPageNumber = (NSUInteger) toSelected;
-
-    //This command seems to be causing memory warnings
-    //[[[self.viewControllers objectAtIndex:0] view] removeFromSuperview];
     
     @autoreleasepool {
         self.pageController.dataSource = self;
@@ -162,13 +153,6 @@
     
     [(PageNavViewController*) self.pageNavigation animatePageNavViewOutOfFrame];
     
-    
-    
-//    [remove willMoveToParentViewController:nil];
-//    [remove.view removeFromSuperview];
-//    [remove removeFromParentViewController];
-    
-    //[self stopSoundPlayer];
 }
 
 
@@ -177,11 +161,6 @@
     @autoreleasepool {
         
     self.mainPageNumber = [(BookPageViewController *)viewController pageNumber];
-        
-//    [viewController willMoveToParentViewController:nil];
-//    [viewController.view removeFromSuperview];
-//    [viewController removeFromParentViewController];
-        
     
     if (self.mainPageNumber == 0) {
         self.mainPageNumber = self.totalPages;
@@ -199,11 +178,7 @@
     @autoreleasepool {
 
     self.mainPageNumber = [(BookPageViewController *)viewController pageNumber];
-        
-        
-//    [viewController willMoveToParentViewController:nil];
-//    [viewController.view removeFromSuperview];
-//    [viewController removeFromParentViewController];
+
     
     if (self.mainPageNumber == self.totalPages) {
         self.mainPageNumber = 0;
@@ -223,8 +198,6 @@
     
     [self.soundPlayer stopSoundPlayer];
     
-    //BookPageViewController *childViewController = [[BookPageViewController alloc] initWithNibName:@"BookPageViewController" bundle:nil];
-
     //@autoreleasepool {
         self.childViewController = [[BookPageViewController alloc] init];
         self.childViewController.pageNumber = (int)index;
@@ -321,14 +294,15 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    
+    NSLog(@"gestureRecognizerShouldBegin");
     CGPoint loc = [gestureRecognizer locationInView:self.view];
     
     if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
         return NO;
     } else {
-
-        if(loc.x<75 || loc.x> [UIScreen mainScreen].bounds.size.height - 75){
+        
+        NSLog(@"%f",loc.x);
+        if(loc.x<75 || loc.x> [UIScreen mainScreen].bounds.size.width - 75){
             return YES;
         }
         else{

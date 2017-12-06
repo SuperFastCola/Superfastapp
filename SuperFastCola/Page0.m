@@ -315,7 +315,7 @@
 }
 
 -(IBAction)tester:(id)sender{
-    NSLog(@"Touch");
+    NSLog(@"--Touch");
 }
 
 -(void) showMouthView: (UIView*) mouth{

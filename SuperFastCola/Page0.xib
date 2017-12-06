@@ -115,10 +115,6 @@
                             <rect key="frame" x="153" y="329" width="26" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2_1.png" id="aPx-dV-wrc">
-                            <rect key="frame" x="524" y="-57" width="118" height="120"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" alpha="0.0" tag="903" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_tear3.png" id="6K4-Uv-kLn">
                             <rect key="frame" x="180" y="329" width="25" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -129,7 +125,11 @@
                     <rect key="frame" x="365" y="647" width="328" height="109"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird1_1.png" id="0mO-o9-Ydl">
+                <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2_1.png" id="aPx-dV-wrc">
+                    <rect key="frame" x="734" y="19" width="118" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird1_1.png" id="0mO-o9-Ydl">
                     <rect key="frame" x="133" y="85" width="127" height="122"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

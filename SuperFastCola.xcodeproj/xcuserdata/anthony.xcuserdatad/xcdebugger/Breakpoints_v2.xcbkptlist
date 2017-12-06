@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperFastCola/SpringyView.m"
-            timestampString = "438913088.471625"
+            timestampString = "534224954.213339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "515"
-            endingLineNumber = "515">
+            startingLineNumber = "522"
+            endingLineNumber = "522">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperFastCola/SpringyView.m"
-            timestampString = "438905135.786367"
+            timestampString = "534224954.213339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-jiggle:"
             landmarkType = "5">
          </BreakpointContent>

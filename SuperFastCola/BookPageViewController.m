@@ -52,38 +52,13 @@
     dynamicPageClass = nil;
     
     //add view controller to self
-    
-//    if(onRightSide) {
-//        //sets initial left point a zero
-//        CGFloat left = 0.0;
-//        
-//        //copies view frame to CG Rect - Not allowed to manipulate frame directly
-//        CGRect frame = page.view.frame;
-//        
-//        //since this is landscape format we will divide the height in half
-//        left = [UIScreen mainScreen].bounds.size.height/2;
-//        frame.origin.x =  left;
-//        page.view.frame = frame;
-//    
-//    }
-//    This code was used when I thought there was a memeory leak in having full screen UIImageView
-//    NSString *fullpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%i", @"Page", withNumber] ofType:@"jpg"];
-////    CGImageRef myimage =  [[[UIImage alloc]initWithContentsOfFile:fullpath]CGImage];
-//    UIImage *loadImage = [UIImage imageWithContentsOfFile:fullpath];
-//    UIImageView* pageImage = (UIImageView*) [self.page.view viewWithTag:200];
-//  //  pageImage.image = [UIImage imageWithCGImage:loadImage];
-//    pageImage.image = loadImage;
         
         float width = [[UIScreen mainScreen] bounds].size.width;
         float height = [[UIScreen mainScreen] bounds].size.height;
         self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,width,height)];
+        [self.view setUserInteractionEnabled:YES];
         
         float scale = height / 768;
-        float new_width = self.view.bounds.size.width * scale;
-        float new_x = (width-new_width)/2;
-        
-//        self.view.bounds = CGRectMake(0, 0, width, height);
-//        self.view.clipsToBounds = YES;
         self.view.transform = CGAffineTransformMakeScale(scale, scale);
         [self addChildViewController:self.page];
         [self.view addSubview:self.page.view];
@@ -93,19 +68,8 @@
         myNibName = nil;
     }
 
-    //[self.page.view removeFromSuperview];
-    
-    //[self.page removeFromParentViewController];
-    //self.page = nil;
-    
-//    if(![[soundFiles objectAtIndex:pageNumber] isEqual:[NSNull null]]){
-//        [self performSelector:@selector(primeAudioPlayer) withObject:nil afterDelay:1];
-//    }
 }
 
-//-(void) primeAudioPlayer{
-//   [self.delegate playSound:[soundFiles objectAtIndex:pageNumber]];
-//}
 
 
 - (void)viewDidLoad

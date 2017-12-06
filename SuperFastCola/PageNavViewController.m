@@ -60,7 +60,7 @@
     float height = [[UIScreen mainScreen] bounds].size.height;
     
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionNone animations:^{
-        self.view.center = CGPointMake(self.view.center.x, height - 160);
+        self.view.center = CGPointMake(self.view.center.x, height - (self.view.bounds.size.height/2));
     } completion:^(BOOL finished){
    
     }];
