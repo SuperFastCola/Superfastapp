@@ -31,6 +31,8 @@
 @synthesize mainPageNumber;
 @synthesize initialPageNumber;
 @synthesize sound_data_object;
+@synthesize arrow_next;
+@synthesize arrow_prev;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -85,17 +87,30 @@
     [self.view addSubview:self.mainMenu];
     [self.mainMenu addTarget:self action:@selector(showPageNavigation:) forControlEvents:UIControlEventTouchDown];
     
+    float left_side = [[UIScreen mainScreen] bounds].size.width - 70;
+    float mid_point = ([[UIScreen mainScreen] bounds].size.height/2) - 30;
+    
+    self.arrow_prev = [[UIButton alloc] initWithFrame:CGRectMake(10, mid_point, 60, 60)];
+    [self.arrow_prev setBackgroundImage:[UIImage imageNamed:@"arrows-02.png"] forState:UIControlStateNormal];
+    self.arrow_prev.alpha = .2;
+    self.arrow_prev.tag = 22;
+    [self.view addSubview:self.arrow_prev];
+    [self.arrow_prev addTarget:self action:@selector(movePageWithArrow:) forControlEvents:UIControlEventTouchDown];
+    
+    self.arrow_next = [[UIButton alloc] initWithFrame:CGRectMake(left_side, mid_point, 60, 60)];
+    [self.arrow_next setBackgroundImage:[UIImage imageNamed:@"arrows-01.png"] forState:UIControlStateNormal];
+    self.arrow_next.alpha = .2;
+    self.arrow_next.tag = 33;
+    [self.view addSubview:self.arrow_next];
+    [self.arrow_next addTarget:self action:@selector(movePageWithArrow:) forControlEvents:UIControlEventTouchDown];
+    
     //adds the initial page view controller
     [self addChildViewController:self.pageController];
     [self.view insertSubview:[self.pageController view] belowSubview:self.mainMenu];
     [self.pageController didMoveToParentViewController:self];
     [self changePage: (int)self.mainPageNumber];
     
-    
-//    float width = [[UIScreen mainScreen] bounds].size.width;
-//    float height = [[UIScreen mainScreen] bounds].size.height;
-        self.view.backgroundColor = [UIColor whiteColor];
-//    self.view = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,width,height)];
+    self.view.backgroundColor = [UIColor whiteColor];
 
     
     for (UIGestureRecognizer* g in self.pageController.gestureRecognizers){
@@ -138,6 +153,28 @@
         
         self.sound_data_object = nil;
     }
+}
+
+-(void) movePageWithArrow: (UIButton*) sender{
+    
+    if(sender.tag == 22){
+        self.mainPageNumber = self.mainPageNumber - 1;
+    }
+    else{
+        self.mainPageNumber = self.mainPageNumber + 1;
+    }
+    
+    if(self.mainPageNumber < 0){
+        self.mainPageNumber = self.totalPages;
+    }
+    
+    if(self.mainPageNumber > self.totalPages){
+        self.mainPageNumber = 0;
+    }
+    
+    sender = nil;
+    [self changePage: (int) self.mainPageNumber];
+    
 }
 
 -(void) changePage: (int) toSelected{

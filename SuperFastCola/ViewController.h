@@ -23,11 +23,13 @@
 @property (nonatomic, retain) UIViewController * pageNavigation;
 @property (nonatomic, retain) NSMutableArray* comicPages;
 @property (nonatomic, retain) UIButton* mainMenu;
+@property (nonatomic, retain) UIButton* arrow_prev;
+@property (nonatomic, retain) UIButton* arrow_next;
 @property (nonatomic) BOOL pageNavigationLoaded;
 @property (nonatomic,retain) NSDictionary* pages_data;
 @property (nonatomic, retain) SuperSoundPlayer* soundPlayer;
 @property (nonatomic) NSURL* soundFileURL;
-@property (nonatomic) NSUInteger mainPageNumber;
+@property (nonatomic) NSInteger mainPageNumber;
 @property (nonatomic) NSUInteger initialPageNumber;
 @property (nonatomic) NSDictionary* sound_data_object;
 

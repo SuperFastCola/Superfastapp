@@ -54,6 +54,8 @@
 		921E352818492A02006102F5 /* Page4.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E352618492A01006102F5 /* Page4.m */; };
 		921E352918492A02006102F5 /* Page4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921E352718492A01006102F5 /* Page4.xib */; };
 		923517EA184D7C6B00D1950E /* PageNavThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 923517E9184D7C6B00D1950E /* PageNavThumbnail.m */; };
+		923846DE1FD8EF6000AAA407 /* arrows-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 923846DC1FD8EF6000AAA407 /* arrows-01.png */; };
+		923846DF1FD8EF6000AAA407 /* arrows-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 923846DD1FD8EF6000AAA407 /* arrows-02.png */; };
 		9239DD6318B44C150048AC90 /* sounds_files.json in Resources */ = {isa = PBXBuildFile; fileRef = 9239DD6218B44C150048AC90 /* sounds_files.json */; };
 		923D196018ADC98800F8BC91 /* page_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 923D195F18ADC98800F8BC91 /* page_1.jpg */; };
 		923D196418ADC99700F8BC91 /* page_1_asteroid1.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D196118ADC99700F8BC91 /* page_1_asteroid1.png */; };
@@ -207,6 +209,8 @@
 		921E352718492A01006102F5 /* Page4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Page4.xib; sourceTree = "<group>"; };
 		923517E8184D7C6B00D1950E /* PageNavThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNavThumbnail.h; sourceTree = "<group>"; };
 		923517E9184D7C6B00D1950E /* PageNavThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageNavThumbnail.m; sourceTree = "<group>"; };
+		923846DC1FD8EF6000AAA407 /* arrows-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrows-01.png"; sourceTree = "<group>"; };
+		923846DD1FD8EF6000AAA407 /* arrows-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrows-02.png"; sourceTree = "<group>"; };
 		9239DD6218B44C150048AC90 /* sounds_files.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sounds_files.json; sourceTree = "<group>"; };
 		923D195F18ADC98800F8BC91 /* page_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page_1.jpg; sourceTree = "<group>"; };
 		923D196118ADC99700F8BC91 /* page_1_asteroid1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_asteroid1.png; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 				9215375A1B3737C700849613 /* page_2_tlm_parts_page2_tlm_text_night1.png */,
 				9215375B1B3737C700849613 /* page_2_tlm_parts_page2_tlm_text_night2.png */,
 				9215375C1B3737C700849613 /* page_2_tlm_parts_page2_tlm_text_night3.png */,
+				923846DC1FD8EF6000AAA407 /* arrows-01.png */,
+				923846DD1FD8EF6000AAA407 /* arrows-02.png */,
 				921537231B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_night3.png */,
 				921537521B3735FC00849613 /* page_2_tlm_parts_page2_tlm_text_day1.png */,
 				921537531B3735FC00849613 /* page_2_tlm_parts_page2_tlm_text_day2.png */,
@@ -739,6 +745,7 @@
 				925FF220197ADF68006A1FAF /* page_1_tlm_speech_text5.png in Resources */,
 				925FF228197AEAD5006A1FAF /* page_1_tlm-01.jpg in Resources */,
 				9248C367199FE575006E4BCF /* page_1_tlm_intro_text4.png in Resources */,
+				923846DE1FD8EF6000AAA407 /* arrows-01.png in Resources */,
 				924C334318482FFE0072BD46 /* Page3.xib in Resources */,
 				9215373A1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_night4.png in Resources */,
 				9209B2C21B5FF5E900F09808 /* page_2_flame2.png in Resources */,
@@ -751,6 +758,7 @@
 				925FF1E0197ADF5C006A1FAF /* page_1_scan_sign.png in Resources */,
 				921174FD18551C2E00BEFB8B /* page_4-thumb.jpg in Resources */,
 				925FF212197ADF68006A1FAF /* page_1_tlm_flames7.png in Resources */,
+				923846DF1FD8EF6000AAA407 /* arrows-02.png in Resources */,
 				92CBB144184C27B5003CE7BF /* page_0-thumb.jpg in Resources */,
 				925FF224197ADF68006A1FAF /* page_1_tlm_tear2.png in Resources */,
 				921537511B372D4100849613 /* page_2_tlm_parts_page2_cloud_mask.png in Resources */,

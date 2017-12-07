@@ -433,6 +433,8 @@
 }
 
 -(void) viewDidUnload{
+    [self.soundPlayer stop];
+    NSLog(@"Stopping Sound");
     self.animateThisImage = nil;
     self.tapAction = nil;
     self.dragObject = nil;
