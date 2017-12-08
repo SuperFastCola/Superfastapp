@@ -33,6 +33,7 @@
 @synthesize sound_data_object;
 @synthesize arrow_next;
 @synthesize arrow_prev;
+@synthesize _pageIsAnimating;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -142,13 +143,14 @@
         self.sound_data_object = [self.pages_data objectForKey:[NSString stringWithFormat:@"%@%i", @"page",self.childViewController.pageNumber]];
     
     self.soundFileURL = [[NSBundle mainBundle] URLForResource:[self.sound_data_object objectForKey:@"soundfile"] withExtension:[self.sound_data_object objectForKey:@"audiotype"]];
-        
-    //self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view  andAnimateLabels:[self.sound_data_object objectForKey:@"tags"] withTimeCues:[self.sound_data_object objectForKey:@"cues"] error:nil];
-      
+                
         if(self.soundFileURL!=nil){
-            
-            
             self.soundPlayer = [[SuperSoundPlayer alloc] initWithContentsOfURL:self.soundFileURL forView:self.childViewController.view withDataObject: self.sound_data_object error:nil];
+        }
+        else{
+            [self.soundPlayer stop];
+            [self.soundPlayer stopSoundPlayer];
+            self.soundPlayer = nil;
         }
         
         self.sound_data_object = nil;
@@ -179,8 +181,9 @@
 
 -(void) changePage: (int) toSelected{
     
+
     self.mainPageNumber = (NSUInteger) toSelected;
-    
+
     @autoreleasepool {
         self.pageController.dataSource = self;
         [[self.pageController view] setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
@@ -188,9 +191,15 @@
         [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     }
     
+    
+    [self.soundPlayer stopSoundPlayer];
+    self.soundPlayer = nil;
+    [self checkForSoundAndPlay];
+    
     [(PageNavViewController*) self.pageNavigation animatePageNavViewOutOfFrame];
     
 }
+
 
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
@@ -233,9 +242,8 @@
 
 - (BookPageViewController *)viewControllerAtIndex:(NSUInteger)index {
     
-    [self.soundPlayer stopSoundPlayer];
-    
     //@autoreleasepool {
+        self.childViewController = nil;
         self.childViewController = [[BookPageViewController alloc] init];
         self.childViewController.pageNumber = (int)index;
         self.childViewController.delegate = self;
@@ -249,13 +257,10 @@
 
     
         self.childViewController.view.bounds = CGRectMake(new_x, 0, self.childViewController.view.frame.size.width, self.childViewController.view.frame.size.height);
-    
-    
-        [self checkForSoundAndPlay];
 
     //}
     
-    return childViewController;
+    return self.childViewController;
 }
 
 //this funciton was to test delegation to the top-level viewcontroller

@@ -110,7 +110,7 @@
     
     void (^completeView) (BOOL) = ^(BOOL success){
         //part.alpha = 0;
-        NSLog(@"------%@ %f", [part description], delayAmount);
+        //NSLog(@"------%@ %f", [part description], delayAmount);
     };
     
     [UIView animateWithDuration:2
@@ -342,7 +342,7 @@
     loc = [gesture translationInView:[self.animateThisImage superview]];
     touchedAt = [gesture locationInView:[self.animateThisImage superview]];
     
-    NSLog(@"%f",touchedAt.x);
+    //NSLog(@"%f",touchedAt.x);
     
     gesture.delaysTouchesEnded = NO;  
     
@@ -414,7 +414,7 @@
     
     
     if(gesture.state == UIGestureRecognizerStateCancelled){
-        NSLog(@"Cancelled");
+        //NSLog(@"Cancelled");
         gesture.enabled = YES;
     }
 
@@ -434,7 +434,7 @@
 
 -(void) viewDidUnload{
     [self.soundPlayer stop];
-    NSLog(@"Stopping Sound");
+    //NSLog(@"Stopping Sound");
     self.animateThisImage = nil;
     self.tapAction = nil;
     self.dragObject = nil;

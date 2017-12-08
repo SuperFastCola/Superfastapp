@@ -7,7 +7,6 @@
 //
 
 #import "Page0.h"
-#import "SuperSoundPlayer.h"
 #import "SpringyView.h"
 #import "AnimateView.h"
 #import "BookPageViewController.h"
@@ -63,7 +62,6 @@
     
     void (^animCloud) (void) = ^{
         
-        NSLog(@"%f",cloud.bounds.origin.y);
         CGPoint endPosition = CGPointMake(([UIScreen mainScreen].bounds.size.width + cloud.bounds.size.width), cloud.frame.origin.y);
         
         CGRect newFrame = cloud.frame;

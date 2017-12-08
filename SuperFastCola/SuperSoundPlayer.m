@@ -36,7 +36,6 @@
     
     if(self){
         
-        //[self stopSoundPlayer];
         @autoreleasepool {
             
             //[self performSelector:@selector(primeAudioPlayer) withObject:nil afterDelay:2];
@@ -239,13 +238,13 @@
 
 -(void) primeAudioPlayer{
     [self prepareToPlay];
-    [self performSelector:@selector(playAudio) withObject:nil afterDelay:1];
+    [self performSelector:@selector(playAudio) withObject:nil afterDelay:0];
 
 }
 
 
 -(void) stopSoundPlayer{
-    NSLog(@"Stopping");
+    //NSLog(@"Stopping");
     [self stop];
     [self.audioTime invalidate];
     [self clearObjects];
