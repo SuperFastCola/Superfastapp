@@ -116,8 +116,8 @@
         
         float blinkDuration = 0.35;
         self.bird1BlinkImages = [NSArray arrayWithObjects:
-                                 [UIImage imageNamed:@"page_1_tlm_bird1_1.png"],
-                                 [UIImage imageNamed:@"page_1_tlm_bird1_2.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_bird1.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_bird1b.png"],
                                  nil
                                  ];
         
@@ -126,8 +126,8 @@
         ((UIImageView*) self.bird1.animateThisImage).animationDuration = blinkDuration;
         
         self.bird2BlinkImages = [NSArray arrayWithObjects:
-                                 [UIImage imageNamed:@"page_1_tlm_bird2_1.png"],
-                                 [UIImage imageNamed:@"page_1_tlm_bird2_2.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_bird2.png"],
+                                 [UIImage imageNamed:@"page_1_tlm_bird2b.png"],
                                  nil
                                  ];
         ((UIImageView*) self.bird2.animateThisImage).animationImages =  self.bird2BlinkImages;

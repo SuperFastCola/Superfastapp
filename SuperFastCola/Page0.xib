@@ -72,7 +72,7 @@
                     </subviews>
                 </view>
                 <view tag="101" contentMode="scaleToFill" id="ASE-ud-tJ6">
-                    <rect key="frame" x="209" y="77" width="827" height="522"/>
+                    <rect key="frame" x="209" y="83" width="827" height="522"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" tag="500" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_flames9.png" id="ZMZ-V3-bjL">
@@ -125,11 +125,11 @@
                     <rect key="frame" x="365" y="647" width="328" height="109"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2_1.png" id="aPx-dV-wrc">
+                <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird2.png" id="aPx-dV-wrc">
                     <rect key="frame" x="734" y="19" width="118" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird1_1.png" id="0mO-o9-Ydl">
+                <imageView tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page_1_tlm_bird1.png" id="0mO-o9-Ydl">
                     <rect key="frame" x="133" y="85" width="127" height="122"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -167,12 +167,12 @@
         <image name="page_1_scan_sign.png" width="328" height="109"/>
         <image name="page_1_tlm-01.jpg" width="1025" height="769"/>
         <image name="page_1_tlm_background.jpg" width="1025" height="769"/>
-        <image name="page_1_tlm_bird1_1.png" width="127" height="122"/>
-        <image name="page_1_tlm_bird2_1.png" width="118" height="120"/>
-        <image name="page_1_tlm_clouds1.png" width="150" height="140"/>
+        <image name="page_1_tlm_bird1.png" width="127" height="122"/>
+        <image name="page_1_tlm_bird2.png" width="118" height="120"/>
+        <image name="page_1_tlm_clouds1.png" width="151" height="140"/>
         <image name="page_1_tlm_clouds2.png" width="352" height="160"/>
         <image name="page_1_tlm_eyes1.png" width="82" height="59"/>
-        <image name="page_1_tlm_flames9.png" width="212" height="335"/>
+        <image name="page_1_tlm_flames9.png" width="212" height="336"/>
         <image name="page_1_tlm_intro_text1.png" width="162" height="63"/>
         <image name="page_1_tlm_intro_text2.png" width="159" height="59"/>
         <image name="page_1_tlm_intro_text3.png" width="120" height="44"/>

@@ -88,17 +88,19 @@
     [self.view addSubview:self.mainMenu];
     [self.mainMenu addTarget:self action:@selector(showPageNavigation:) forControlEvents:UIControlEventTouchDown];
     
-    float left_side = [[UIScreen mainScreen] bounds].size.width - 70;
-    float mid_point = ([[UIScreen mainScreen] bounds].size.height/2) - 30;
+    int arrow_width = 40;
+    int arrow_side_space = 10;
+    float left_side = [[UIScreen mainScreen] bounds].size.width - (arrow_width + arrow_side_space);
+    float mid_point = ([[UIScreen mainScreen] bounds].size.height/2) - (arrow_width/2);
     
-    self.arrow_prev = [[UIButton alloc] initWithFrame:CGRectMake(10, mid_point, 60, 60)];
+    self.arrow_prev = [[UIButton alloc] initWithFrame:CGRectMake(arrow_side_space, mid_point, arrow_width, arrow_width)];
     [self.arrow_prev setBackgroundImage:[UIImage imageNamed:@"arrows-02.png"] forState:UIControlStateNormal];
     self.arrow_prev.alpha = .2;
     self.arrow_prev.tag = 22;
     [self.view addSubview:self.arrow_prev];
     [self.arrow_prev addTarget:self action:@selector(movePageWithArrow:) forControlEvents:UIControlEventTouchDown];
     
-    self.arrow_next = [[UIButton alloc] initWithFrame:CGRectMake(left_side, mid_point, 60, 60)];
+    self.arrow_next = [[UIButton alloc] initWithFrame:CGRectMake(left_side, mid_point, arrow_width, arrow_width)];
     [self.arrow_next setBackgroundImage:[UIImage imageNamed:@"arrows-01.png"] forState:UIControlStateNormal];
     self.arrow_next.alpha = .2;
     self.arrow_next.tag = 33;
@@ -159,28 +161,39 @@
 
 -(void) movePageWithArrow: (UIButton*) sender{
     
+    long int goingToPage = 0;
+    
     if(sender.tag == 22){
-        self.mainPageNumber = self.mainPageNumber - 1;
+        goingToPage = self.mainPageNumber - 1;
     }
     else{
-        self.mainPageNumber = self.mainPageNumber + 1;
+        goingToPage = self.mainPageNumber + 1;
     }
     
-    if(self.mainPageNumber < 0){
-        self.mainPageNumber = self.totalPages;
+    if(goingToPage < 0){
+        goingToPage = self.totalPages;
     }
     
-    if(self.mainPageNumber > self.totalPages){
-        self.mainPageNumber = 0;
+    if(goingToPage > self.totalPages){
+        goingToPage = 0;
     }
     
     sender = nil;
-    [self changePage: (int) self.mainPageNumber];
+    [self changePage: (int) goingToPage];
     
 }
 
 -(void) changePage: (int) toSelected{
+
+    Boolean forward = YES;
     
+    NSLog(@"%ld %d", (long)self.mainPageNumber, toSelected);
+
+    if(self.mainPageNumber > toSelected){
+        forward = NO;
+    }
+    
+    NSLog(@"%i",forward);
 
     self.mainPageNumber = (NSUInteger) toSelected;
 
@@ -188,7 +201,14 @@
         self.pageController.dataSource = self;
         [[self.pageController view] setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
         self.viewControllers = [NSArray arrayWithObject:[self viewControllerAtIndex:toSelected]];
-        [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        
+        if(forward){
+            [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        }
+        else{
+            [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+        }
+        
     }
     
     
