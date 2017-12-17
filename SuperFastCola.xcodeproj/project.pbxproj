@@ -61,6 +61,8 @@
 		923D196418ADC99700F8BC91 /* page_1_asteroid1.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D196118ADC99700F8BC91 /* page_1_asteroid1.png */; };
 		923D196518ADC99700F8BC91 /* page_1_comet.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D196218ADC99700F8BC91 /* page_1_comet.png */; };
 		923D196618ADC99700F8BC91 /* page_1_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 923D196318ADC99700F8BC91 /* page_1_sun.png */; };
+		9244D5E71FE6214700F3A3FB /* page_3_tlm-text-me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9244D5E51FE6214700F3A3FB /* page_3_tlm-text-me.png */; };
+		9244D5E81FE6214700F3A3FB /* page_3_tlm-text-some.png in Resources */ = {isa = PBXBuildFile; fileRef = 9244D5E61FE6214700F3A3FB /* page_3_tlm-text-some.png */; };
 		9248C355199FC02D006E4BCF /* AnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248C354199FC02D006E4BCF /* AnimateView.m */; };
 		9248C35D199FDC44006E4BCF /* page_1_tlm_cloud_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9248C35C199FDC44006E4BCF /* page_1_tlm_cloud_mask.png */; };
 		9248C364199FE575006E4BCF /* page_1_tlm_intro_text1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9248C35E199FE575006E4BCF /* page_1_tlm_intro_text1.png */; };
@@ -69,6 +71,29 @@
 		9248C367199FE575006E4BCF /* page_1_tlm_intro_text4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9248C361199FE575006E4BCF /* page_1_tlm_intro_text4.png */; };
 		9248C368199FE575006E4BCF /* page_1_tlm_intro_text5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9248C362199FE575006E4BCF /* page_1_tlm_intro_text5.png */; };
 		9248C369199FE575006E4BCF /* page_1_tlm_intro_text6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9248C363199FE575006E4BCF /* page_1_tlm_intro_text6.png */; };
+		924B37C81FE586BF003BEFBD /* page_3_tlm-text-then.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37C71FE586BF003BEFBD /* page_3_tlm-text-then.png */; };
+		924B37CA1FE586C7003BEFBD /* page_3_tlm-text-storm.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37C91FE586C7003BEFBD /* page_3_tlm-text-storm.png */; };
+		924B37D11FE586CE003BEFBD /* page_3_tlm-text-brain.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37CB1FE586CE003BEFBD /* page_3_tlm-text-brain.png */; };
+		924B37D21FE586CE003BEFBD /* page_3_tlm-text-find.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37CC1FE586CE003BEFBD /* page_3_tlm-text-find.png */; };
+		924B37D31FE586CE003BEFBD /* page_3_tlm-text-friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37CD1FE586CE003BEFBD /* page_3_tlm-text-friends.png */; };
+		924B37D41FE586CE003BEFBD /* page_3_tlm-text-had.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37CE1FE586CE003BEFBD /* page_3_tlm-text-had.png */; };
+		924B37D51FE586CE003BEFBD /* page_3_tlm-text-ill.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37CF1FE586CE003BEFBD /* page_3_tlm-text-ill.png */; };
+		924B37D61FE586CE003BEFBD /* page_3_tlm-text-it.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37D01FE586CE003BEFBD /* page_3_tlm-text-it.png */; };
+		924B37E61FE586D8003BEFBD /* page_3_tlm-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37D71FE586D8003BEFBD /* page_3_tlm-01.png */; };
+		924B37E71FE586D8003BEFBD /* page_3_tlm-brain.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37D81FE586D8003BEFBD /* page_3_tlm-brain.png */; };
+		924B37E81FE586D8003BEFBD /* page_3_tlm-brush.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37D91FE586D8003BEFBD /* page_3_tlm-brush.png */; };
+		924B37E91FE586D8003BEFBD /* page_3_tlm-cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37DA1FE586D8003BEFBD /* page_3_tlm-cloud.png */; };
+		924B37EA1FE586D8003BEFBD /* page_3_tlm-confetti.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37DB1FE586D8003BEFBD /* page_3_tlm-confetti.png */; };
+		924B37EB1FE586D8003BEFBD /* page_3_tlm-droplets.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37DC1FE586D8003BEFBD /* page_3_tlm-droplets.png */; };
+		924B37EC1FE586D8003BEFBD /* page_3_tlm-general-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37DD1FE586D8003BEFBD /* page_3_tlm-general-back.png */; };
+		924B37ED1FE586D8003BEFBD /* page_3_tlm-lightning.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37DE1FE586D8003BEFBD /* page_3_tlm-lightning.png */; };
+		924B37EE1FE586D8003BEFBD /* page_3_tlm-missel-cap.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37DF1FE586D8003BEFBD /* page_3_tlm-missel-cap.png */; };
+		924B37EF1FE586D8003BEFBD /* page_3_tlm-missle.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37E01FE586D8003BEFBD /* page_3_tlm-missle.png */; };
+		924B37F01FE586D8003BEFBD /* page_3_tlm-rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37E11FE586D8003BEFBD /* page_3_tlm-rain.png */; };
+		924B37F11FE586D8003BEFBD /* page_3_tlm-soap.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37E21FE586D8003BEFBD /* page_3_tlm-soap.png */; };
+		924B37F21FE586D8003BEFBD /* page_3_tlm-speech-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37E31FE586D8003BEFBD /* page_3_tlm-speech-back.png */; };
+		924B37F31FE586D8003BEFBD /* page_3_tlm-streamers.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37E41FE586D8003BEFBD /* page_3_tlm-streamers.png */; };
+		924B37F41FE586D8003BEFBD /* page_3_tlm-text-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 924B37E51FE586D8003BEFBD /* page_3_tlm-text-a.png */; };
 		924BDBC4184AEA6A007B1761 /* suki_intro_v1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 924BDBC3184AEA6A007B1761 /* suki_intro_v1.mp3 */; };
 		924C0DD41856BDC700E8445D /* PageNavViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924C0DD31856BDC700E8445D /* PageNavViewController.xib */; };
 		924C333818482F6B0072BD46 /* Page1.m in Sources */ = {isa = PBXBuildFile; fileRef = 924C333618482F6B0072BD46 /* Page1.m */; };
@@ -216,6 +241,8 @@
 		923D196218ADC99700F8BC91 /* page_1_comet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_comet.png; sourceTree = "<group>"; };
 		923D196318ADC99700F8BC91 /* page_1_sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_sun.png; sourceTree = "<group>"; };
 		9241548518490FEB00B6B069 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9244D5E51FE6214700F3A3FB /* page_3_tlm-text-me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-me.png"; sourceTree = "<group>"; };
+		9244D5E61FE6214700F3A3FB /* page_3_tlm-text-some.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-some.png"; sourceTree = "<group>"; };
 		9248C353199FC02D006E4BCF /* AnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateView.h; sourceTree = "<group>"; };
 		9248C354199FC02D006E4BCF /* AnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateView.m; sourceTree = "<group>"; };
 		9248C35C199FDC44006E4BCF /* page_1_tlm_cloud_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_tlm_cloud_mask.png; sourceTree = "<group>"; };
@@ -225,6 +252,29 @@
 		9248C361199FE575006E4BCF /* page_1_tlm_intro_text4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_tlm_intro_text4.png; sourceTree = "<group>"; };
 		9248C362199FE575006E4BCF /* page_1_tlm_intro_text5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_tlm_intro_text5.png; sourceTree = "<group>"; };
 		9248C363199FE575006E4BCF /* page_1_tlm_intro_text6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_1_tlm_intro_text6.png; sourceTree = "<group>"; };
+		924B37C71FE586BF003BEFBD /* page_3_tlm-text-then.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-then.png"; sourceTree = "<group>"; };
+		924B37C91FE586C7003BEFBD /* page_3_tlm-text-storm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-storm.png"; sourceTree = "<group>"; };
+		924B37CB1FE586CE003BEFBD /* page_3_tlm-text-brain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-brain.png"; sourceTree = "<group>"; };
+		924B37CC1FE586CE003BEFBD /* page_3_tlm-text-find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-find.png"; sourceTree = "<group>"; };
+		924B37CD1FE586CE003BEFBD /* page_3_tlm-text-friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-friends.png"; sourceTree = "<group>"; };
+		924B37CE1FE586CE003BEFBD /* page_3_tlm-text-had.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-had.png"; sourceTree = "<group>"; };
+		924B37CF1FE586CE003BEFBD /* page_3_tlm-text-ill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-ill.png"; sourceTree = "<group>"; };
+		924B37D01FE586CE003BEFBD /* page_3_tlm-text-it.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-it.png"; sourceTree = "<group>"; };
+		924B37D71FE586D8003BEFBD /* page_3_tlm-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-01.png"; sourceTree = "<group>"; };
+		924B37D81FE586D8003BEFBD /* page_3_tlm-brain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-brain.png"; sourceTree = "<group>"; };
+		924B37D91FE586D8003BEFBD /* page_3_tlm-brush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-brush.png"; sourceTree = "<group>"; };
+		924B37DA1FE586D8003BEFBD /* page_3_tlm-cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-cloud.png"; sourceTree = "<group>"; };
+		924B37DB1FE586D8003BEFBD /* page_3_tlm-confetti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-confetti.png"; sourceTree = "<group>"; };
+		924B37DC1FE586D8003BEFBD /* page_3_tlm-droplets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-droplets.png"; sourceTree = "<group>"; };
+		924B37DD1FE586D8003BEFBD /* page_3_tlm-general-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-general-back.png"; sourceTree = "<group>"; };
+		924B37DE1FE586D8003BEFBD /* page_3_tlm-lightning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-lightning.png"; sourceTree = "<group>"; };
+		924B37DF1FE586D8003BEFBD /* page_3_tlm-missel-cap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-missel-cap.png"; sourceTree = "<group>"; };
+		924B37E01FE586D8003BEFBD /* page_3_tlm-missle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-missle.png"; sourceTree = "<group>"; };
+		924B37E11FE586D8003BEFBD /* page_3_tlm-rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-rain.png"; sourceTree = "<group>"; };
+		924B37E21FE586D8003BEFBD /* page_3_tlm-soap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-soap.png"; sourceTree = "<group>"; };
+		924B37E31FE586D8003BEFBD /* page_3_tlm-speech-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-speech-back.png"; sourceTree = "<group>"; };
+		924B37E41FE586D8003BEFBD /* page_3_tlm-streamers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-streamers.png"; sourceTree = "<group>"; };
+		924B37E51FE586D8003BEFBD /* page_3_tlm-text-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page_3_tlm-text-a.png"; sourceTree = "<group>"; };
 		924BDBC3184AEA6A007B1761 /* suki_intro_v1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = suki_intro_v1.mp3; sourceTree = "<group>"; };
 		924C0DD31856BDC700E8445D /* PageNavViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageNavViewController.xib; sourceTree = "<group>"; };
 		924C333518482F6B0072BD46 /* Page1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page1.h; sourceTree = "<group>"; };
@@ -402,6 +452,31 @@
 		92898391184998A3000E5201 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				924B37C71FE586BF003BEFBD /* page_3_tlm-text-then.png */,
+				9244D5E51FE6214700F3A3FB /* page_3_tlm-text-me.png */,
+				9244D5E61FE6214700F3A3FB /* page_3_tlm-text-some.png */,
+				924B37C91FE586C7003BEFBD /* page_3_tlm-text-storm.png */,
+				924B37CB1FE586CE003BEFBD /* page_3_tlm-text-brain.png */,
+				924B37CC1FE586CE003BEFBD /* page_3_tlm-text-find.png */,
+				924B37CD1FE586CE003BEFBD /* page_3_tlm-text-friends.png */,
+				924B37CE1FE586CE003BEFBD /* page_3_tlm-text-had.png */,
+				924B37D71FE586D8003BEFBD /* page_3_tlm-01.png */,
+				924B37D81FE586D8003BEFBD /* page_3_tlm-brain.png */,
+				924B37D91FE586D8003BEFBD /* page_3_tlm-brush.png */,
+				924B37DA1FE586D8003BEFBD /* page_3_tlm-cloud.png */,
+				924B37DB1FE586D8003BEFBD /* page_3_tlm-confetti.png */,
+				924B37DC1FE586D8003BEFBD /* page_3_tlm-droplets.png */,
+				924B37DD1FE586D8003BEFBD /* page_3_tlm-general-back.png */,
+				924B37DE1FE586D8003BEFBD /* page_3_tlm-lightning.png */,
+				924B37DF1FE586D8003BEFBD /* page_3_tlm-missel-cap.png */,
+				924B37E01FE586D8003BEFBD /* page_3_tlm-missle.png */,
+				924B37E11FE586D8003BEFBD /* page_3_tlm-rain.png */,
+				924B37E21FE586D8003BEFBD /* page_3_tlm-soap.png */,
+				924B37E31FE586D8003BEFBD /* page_3_tlm-speech-back.png */,
+				924B37E41FE586D8003BEFBD /* page_3_tlm-streamers.png */,
+				924B37E51FE586D8003BEFBD /* page_3_tlm-text-a.png */,
+				924B37CF1FE586CE003BEFBD /* page_3_tlm-text-ill.png */,
+				924B37D01FE586CE003BEFBD /* page_3_tlm-text-it.png */,
 				9209B2BD1B5FF5E900F09808 /* page_2_flame1.png */,
 				9209B2BE1B5FF5E900F09808 /* page_2_flame2.png */,
 				9209B2BF1B5FF5E900F09808 /* page_2_flame3.png */,
@@ -634,21 +709,26 @@
 			files = (
 				9215373D1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_day4.png in Resources */,
 				926800AA1B6558FF00883C4A /* sniff.mp3 in Resources */,
+				924B37EC1FE586D8003BEFBD /* page_3_tlm-general-back.png in Resources */,
 				925FF221197ADF68006A1FAF /* page_1_tlm_speech_text6.png in Resources */,
 				923D196418ADC99700F8BC91 /* page_1_asteroid1.png in Resources */,
 				9215375F1B3737C700849613 /* page_2_tlm_parts_page2_tlm_text_night3.png in Resources */,
+				924B37D51FE586CE003BEFBD /* page_3_tlm-text-ill.png in Resources */,
 				921537401B3720CB00849613 /* page_2_tlm_parts_page2_tlm_sign_day.png in Resources */,
 				925FF223197ADF68006A1FAF /* page_1_tlm_tear1.png in Resources */,
 				921174FB18551C2E00BEFB8B /* page_2-thumb.jpg in Resources */,
+				924B37D41FE586CE003BEFBD /* page_3_tlm-text-had.png in Resources */,
 				9215374D1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_text_night.png in Resources */,
 				9248C369199FE575006E4BCF /* page_1_tlm_intro_text6.png in Resources */,
 				9215373C1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_day3.png in Resources */,
 				921174F51855174800BEFB8B /* page_2-01.jpg in Resources */,
+				924B37EB1FE586D8003BEFBD /* page_3_tlm-droplets.png in Resources */,
 				923D196618ADC99700F8BC91 /* page_1_sun.png in Resources */,
 				925FF1DB197ADD8E006A1FAF /* Page0.xib in Resources */,
 				921537411B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_night1.png in Resources */,
 				925FF22E197AEF31006A1FAF /* page_1_tlm_eyes3.png in Resources */,
 				925FF209197ADF68006A1FAF /* page_1_tlm_clouds2.png in Resources */,
+				924B37F11FE586D8003BEFBD /* page_3_tlm-soap.png in Resources */,
 				925FF213197ADF68006A1FAF /* page_1_tlm_flames8.png in Resources */,
 				925FF20C197ADF68006A1FAF /* page_1_tlm_flames1.png in Resources */,
 				925FF215197ADF68006A1FAF /* page_1_tlm_flames10.png in Resources */,
@@ -658,10 +738,12 @@
 				9215374A1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_text_sniff_night.png in Resources */,
 				92F3A5571A279BB400DCB158 /* bird_tweet.mp3 in Resources */,
 				9248C35D199FDC44006E4BCF /* page_1_tlm_cloud_mask.png in Resources */,
+				924B37EA1FE586D8003BEFBD /* page_3_tlm-confetti.png in Resources */,
 				9215374B1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_clouds.png in Resources */,
 				9215373B1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_day2.png in Resources */,
 				926800AD1B655A4700883C4A /* whoot1.mp3 in Resources */,
 				921174F61855174800BEFB8B /* page_3-01.jpg in Resources */,
+				924B37C81FE586BF003BEFBD /* page_3_tlm-text-then.png in Resources */,
 				92737CFD1BB83B03003D2A86 /* page_2_tlm_parts_page2_tlm_background_night_v2.png in Resources */,
 				9250A8EB184A5D8000932BBE /* suki_intro_v1.aac in Resources */,
 				925FF21A197ADF68006A1FAF /* page_1_tlm_mouth_v4.png in Resources */,
@@ -670,7 +752,9 @@
 				925FF222197ADF68006A1FAF /* page_1_tlm_speech.png in Resources */,
 				921537451B3720CB00849613 /* page_2_tlm_parts_page2_tlm_background_day.png in Resources */,
 				925FF21C197ADF68006A1FAF /* page_1_tlm_speech_text1.png in Resources */,
+				924B37E61FE586D8003BEFBD /* page_3_tlm-01.png in Resources */,
 				9250A8DA184A284900932BBE /* Page0.jpg in Resources */,
+				9244D5E81FE6214700F3A3FB /* page_3_tlm-text-some.png in Resources */,
 				923D196518ADC99700F8BC91 /* page_1_comet.png in Resources */,
 				921537391B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_night3.png in Resources */,
 				926800A71B6556C100883C4A /* lonely_page2.mp3 in Resources */,
@@ -691,16 +775,21 @@
 				9215373F1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_moon.png in Resources */,
 				925FF1DE197ADF34006A1FAF /* page_1_tlm_background.jpg in Resources */,
 				925FF20A197ADF68006A1FAF /* page_1_tlm_eyes_v1.png in Resources */,
+				924B37EF1FE586D8003BEFBD /* page_3_tlm-missle.png in Resources */,
+				924B37E91FE586D8003BEFBD /* page_3_tlm-cloud.png in Resources */,
 				925FF219197ADF68006A1FAF /* page_1_tlm_mouth_v3.png in Resources */,
 				929D340E18483452000E2F74 /* BookPageViewController.xib in Resources */,
 				9248C368199FE575006E4BCF /* page_1_tlm_intro_text5.png in Resources */,
 				92BC91C81847A7E3003BD817 /* InfoPlist.strings in Resources */,
 				925FF214197ADF68006A1FAF /* page_1_tlm_flames9.png in Resources */,
 				921175001855226A00BEFB8B /* page_5-01.jpg in Resources */,
+				924B37F41FE586D8003BEFBD /* page_3_tlm-text-a.png in Resources */,
 				9278B71F1A28D99B00CFEFDD /* lonely_page1_isolated.mp3 in Resources */,
 				921537571B3735FC00849613 /* page_2_tlm_parts_page2_tlm_text_day2.png in Resources */,
 				921537491B3720CB00849613 /* page_2_tlm_parts_page2_tlm_text_sniff_day.png in Resources */,
+				924B37EE1FE586D8003BEFBD /* page_3_tlm-missel-cap.png in Resources */,
 				925FF211197ADF68006A1FAF /* page_1_tlm_flames6.png in Resources */,
+				924B37D11FE586CE003BEFBD /* page_3_tlm-text-brain.png in Resources */,
 				926800AE1B655A4700883C4A /* whoot2.mp3 in Resources */,
 				921175011855226A00BEFB8B /* page_5-thumb.jpg in Resources */,
 				9211750E185522F000BEFB8B /* Page5.xib in Resources */,
@@ -710,12 +799,16 @@
 				921537561B3735FC00849613 /* page_2_tlm_parts_page2_tlm_text_day1.png in Resources */,
 				921537471B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_day1.png in Resources */,
 				925FF210197ADF68006A1FAF /* page_1_tlm_flames5.png in Resources */,
+				924B37E81FE586D8003BEFBD /* page_3_tlm-brush.png in Resources */,
 				925FF20D197ADF68006A1FAF /* page_1_tlm_flames2.png in Resources */,
 				925FF21D197ADF68006A1FAF /* page_1_tlm_speech_text2.png in Resources */,
+				924B37CA1FE586C7003BEFBD /* page_3_tlm-text-storm.png in Resources */,
 				921174FC18551C2E00BEFB8B /* page_3-thumb.jpg in Resources */,
 				921537421B3720CB00849613 /* page_2_tlm_parts_page2_tlm_planet_day.png in Resources */,
 				925FF20E197ADF68006A1FAF /* page_1_tlm_flames3.png in Resources */,
+				924B37F01FE586D8003BEFBD /* page_3_tlm-rain.png in Resources */,
 				925FF218197ADF68006A1FAF /* page_1_tlm_mouth_v2.png in Resources */,
+				924B37D21FE586CE003BEFBD /* page_3_tlm-text-find.png in Resources */,
 				9250A8E3184A389800932BBE /* Icon-72.png in Resources */,
 				925FF21F197ADF68006A1FAF /* page_1_tlm_speech_text4.png in Resources */,
 				921537581B3735FC00849613 /* page_2_tlm_parts_page2_tlm_text_day3.png in Resources */,
@@ -723,12 +816,15 @@
 				9239DD6318B44C150048AC90 /* sounds_files.json in Resources */,
 				924C333E18482FBD0072BD46 /* Page2.xib in Resources */,
 				925FF20B197ADF68006A1FAF /* page_1_tlm_eyes_v2.png in Resources */,
+				924B37F21FE586D8003BEFBD /* page_3_tlm-speech-back.png in Resources */,
+				9244D5E71FE6214700F3A3FB /* page_3_tlm-text-me.png in Resources */,
 				924E97BD185E5733004D9DD9 /* page_nav_close.png in Resources */,
 				921537481B3720CB00849613 /* page_2_tlm_parts_page2_tlm_sign_night.png in Resources */,
 				92BC91D11847A7E3003BD817 /* Main.storyboard in Resources */,
 				9250A8E4184A389800932BBE /* Icon-Small-50.png in Resources */,
 				925FF21B197ADF68006A1FAF /* page_1_tlm_speech_fpo.png in Resources */,
 				92737CFF1BB84121003D2A86 /* page_2_tlm_parts_page2_tlm_background_night_v3.png in Resources */,
+				924B37E71FE586D8003BEFBD /* page_3_tlm-brain.png in Resources */,
 				923D196018ADC98800F8BC91 /* page_1.jpg in Resources */,
 				921537461B3720CB00849613 /* page_2_tlm_parts_page2_tlm_background_night.png in Resources */,
 				924E97BE185E5733004D9DD9 /* page_nav_menu.png in Resources */,
@@ -745,10 +841,14 @@
 				9215373A1B3720CB00849613 /* page_2_tlm_parts_page2_tlm_missle_night4.png in Resources */,
 				9209B2C21B5FF5E900F09808 /* page_2_flame2.png in Resources */,
 				925FF20F197ADF68006A1FAF /* page_1_tlm_flames4.png in Resources */,
+				924B37D61FE586CE003BEFBD /* page_3_tlm-text-it.png in Resources */,
 				92CC92FA1FDF8451009949AD /* page_1_tlm_bird1b.png in Resources */,
+				924B37ED1FE586D8003BEFBD /* page_3_tlm-lightning.png in Resources */,
 				921537441B3720CB00849613 /* page_2_tlm_parts_page2_tlm_sun.png in Resources */,
+				924B37D31FE586CE003BEFBD /* page_3_tlm-text-friends.png in Resources */,
 				9215375D1B3737C700849613 /* page_2_tlm_parts_page2_tlm_text_night1.png in Resources */,
 				92CC92FB1FDF8451009949AD /* page_1_tlm_bird2.png in Resources */,
+				924B37F31FE586D8003BEFBD /* page_3_tlm-streamers.png in Resources */,
 				9248C364199FE575006E4BCF /* page_1_tlm_intro_text1.png in Resources */,
 				9250A8DB184A284900932BBE /* Default-Landscape.png in Resources */,
 				925FF1E0197ADF5C006A1FAF /* page_1_scan_sign.png in Resources */,
